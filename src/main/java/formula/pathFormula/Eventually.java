@@ -28,7 +28,6 @@ public class Eventually extends PathFormula {
     public void writeToBuffer(StringBuilder buffer) {
         buffer.append(FormulaParser.EVENTUALLY_TOKEN);
         stateFormula.writeToBuffer(buffer);
-        ;
     }
 
 }
