@@ -2,6 +2,8 @@ package formula.stateFormula;
 
 import formula.FormulaParser;
 import formula.pathFormula.PathFormula;
+import model.Model;
+import model.State;
 
 public class ThereExists extends StateFormula {
     public final PathFormula pathFormula;
@@ -16,5 +18,11 @@ public class ThereExists extends StateFormula {
         buffer.append(FormulaParser.THEREEXISTS_TOKEN);
         pathFormula.writeToBuffer(buffer);
         buffer.append(")");
+    }
+
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        //TODO Needs implementing
+        return false;
     }
 }

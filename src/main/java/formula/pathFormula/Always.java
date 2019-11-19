@@ -2,6 +2,9 @@ package formula.pathFormula;
 
 import formula.FormulaParser;
 import formula.stateFormula.*;
+import model.Model;
+import model.State;
+
 import java.util.*;
 
 public class Always extends PathFormula {
@@ -21,8 +24,10 @@ public class Always extends PathFormula {
     public void writeToBuffer(StringBuilder buffer) {
         buffer.append(FormulaParser.ALWAYS_TOKEn);
         stateFormula.writeToBuffer(buffer);
-        ;
-
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return false;
+    }
 }

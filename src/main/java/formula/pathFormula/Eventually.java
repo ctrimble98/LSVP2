@@ -2,6 +2,9 @@ package formula.pathFormula;
 
 import formula.FormulaParser;
 import formula.stateFormula.*;
+import model.Model;
+import model.State;
+
 import java.util.*;
 
 public class Eventually extends PathFormula {
@@ -30,4 +33,8 @@ public class Eventually extends PathFormula {
         stateFormula.writeToBuffer(buffer);
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return false;
+    }
 }

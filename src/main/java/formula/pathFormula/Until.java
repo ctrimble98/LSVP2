@@ -2,6 +2,9 @@ package formula.pathFormula;
 
 import formula.*;
 import formula.stateFormula.*;
+import model.Model;
+import model.State;
+
 import java.util.Set;
 
 public class Until extends PathFormula {
@@ -35,4 +38,8 @@ public class Until extends PathFormula {
         buffer.append(")");
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return false;
+    }
 }

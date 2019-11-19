@@ -4,65 +4,15 @@ import formula.stateFormula.*;
 import formula.pathFormula.*;
 import model.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class SimpleModelChecker implements ModelChecker {
 
-    private HashMap<String, State> states = new HashMap<String, State>();
-    private ArrayList<String> trace = new ArrayList<String>();
-    private HashSet<Loop> loops = new HashSet<Loop>();
+    private Map<String, State> states = new HashMap<String, State>();
+    private List<String> trace = new ArrayList<String>();
+    private Set<Loop> loops = new HashSet<Loop>();
 
-    private boolean checkStateFormula(Model model, StateFormula formula, State currentState) {
-        if (formula instanceof And) {
-
-            return checkStateFormula(model, ((And)formula).left, currentState) && checkStateFormula(model, ((And)formula).right, currentState);
-        } else if (formula instanceof Or) {
-
-            return checkStateFormula(model, ((Or)formula).left, currentState) || checkStateFormula(model, ((Or)formula).right, currentState);
-        } else if (formula instanceof Not) {
-
-            return !checkStateFormula(model, ((Not)formula).stateFormula, currentState);
-        } else if (formula instanceof AtomicProp) {
-
-            String label = ((AtomicProp)formula).label;
-            String[] labels = currentState.getLabel();
-
-            for (String l:labels) {
-                if (l.equals(label)) {
-                    return true;
-                }
-            }
-            return false;
-        } else if (formula instanceof BoolProp) {
-
-            return ((BoolProp)formula).value;
-        } else if (formula instanceof ThereExists) {
-            //TODO there exists (not forall?). Could replace all with not forall
-
-        } else if (formula instanceof ForAll) {
-            //TODO unknown if works
-            return checkPathFormula(model, ((ForAll)formula).pathFormula, currentState);
-        }
-        return false;
-    }
-
-    private boolean checkPathFormula(Model model, PathFormula formula, State currentState) {
-        if (formula instanceof Always) {
-
-        } else if (formula instanceof Eventually) {
-
-        } else if (formula instanceof Next) {
-
-        } else if (formula instanceof Until) {
-
-        }
-        return false;
-    }
-
-    private boolean checkState(Model model, StateFormula constraint, StateFormula query, State currentState, HashSet<String> visitedStates, ArrayList<Transition> trans) {
+    private boolean checkState(Model model, StateFormula constraint, StateFormula query, State currentState, HashSet<String> visitedStates, List<Transition> trans) {
         visitedStates.add(currentState.getName());
         System.out.println(currentState.getName());
         //loop through all transitions from thi state and recur
@@ -75,7 +25,7 @@ public class SimpleModelChecker implements ModelChecker {
                 boolean matches = true;
 
                 //recurse down
-                ArrayList<Transition> newTrans = new ArrayList<Transition>(trans);
+                List<Transition> newTrans = new ArrayList<Transition>(trans);
                 newTrans.add(t);
 
                 if (matches) {

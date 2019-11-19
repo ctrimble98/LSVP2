@@ -1,5 +1,8 @@
 package formula.stateFormula;
 
+import model.Model;
+import model.State;
+
 public class BoolProp extends StateFormula {
     public final boolean value;
 
@@ -13,4 +16,8 @@ public class BoolProp extends StateFormula {
         buffer.append(" " + stringValue + " ");
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return value;
+    }
 }

@@ -1,6 +1,8 @@
 package formula.stateFormula;
 
 import formula.FormulaParser;
+import model.Model;
+import model.State;
 
 public class Not extends StateFormula {
     public final StateFormula stateFormula;
@@ -17,4 +19,8 @@ public class Not extends StateFormula {
         buffer.append(")");
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return !stateFormula.checkFormula(model, currentState);
+    }
 }

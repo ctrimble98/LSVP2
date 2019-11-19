@@ -1,5 +1,8 @@
 package formula.stateFormula;
 
+import model.Model;
+import model.State;
+
 public class And extends StateFormula {
     public final StateFormula left;
     public final StateFormula right;
@@ -18,4 +21,8 @@ public class And extends StateFormula {
         buffer.append(")");
     }
 
+    @Override
+    public boolean checkFormula(Model model, State currentState) {
+        return left.checkFormula(model, currentState) && right.checkFormula(model, currentState);
+    }
 }

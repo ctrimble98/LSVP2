@@ -6,7 +6,7 @@ public class Loop {
 
     private List<Transition> transitions;
 
-    public Loop(ArrayList<Transition> transitions) {
+    public Loop(List<Transition> transitions) {
         int i = 0;
         int last = transitions.size() - 1;
         while (!transitions.get(i).getSource().equals(transitions.get(last).getTarget())) {
