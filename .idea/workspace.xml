@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c565f33-6770-47b0-b0fc-f8cbe4ab8192" name="Default Changelist" comment="">
+    <list default="true" id="1c565f33-6770-47b0-b0fc-f8cbe4ab8192" name="Default Changelist" comment="Intellij stuff">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,6 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/formula/FormulaParser.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/formula/Reader.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/formula/pathFormula/Always.class" beforeDir="false" />
@@ -41,29 +45,8 @@
       <change beforePath="$PROJECT_DIR$/bin/queryExample/Formula/query2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/Simple.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Simple.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/branchfc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/branchnc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/branchpc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/bundle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/class.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/down.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/greenbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/group.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/method.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/package.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/redbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/report.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/report.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/session.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/sort.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/source.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-resources/up.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-sessions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacocoTestReport.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/test/coverage/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/test/coverage/jacocoTestReport.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/test/coverage/jacocoTestReport.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/test/junit/classes/modelChecker.ModelCheckerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/test/junit/classes/modelChecker.ModelCheckerTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/test/junit/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/test/junit/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/test/junit/packages/modelChecker.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/test/junit/packages/modelChecker.html" afterDir="false" />
@@ -107,11 +90,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="248">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -130,10 +125,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/gradle.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -155,45 +150,6 @@
             <path>
               <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="modelChecker" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -221,7 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.LSVP2 [clean build]">
+  <component name="RunManager" selected="Gradle.LSVP2 [clean build test coverage]">
     <configuration name="LSVP2 [clean build test coverage]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -280,10 +236,30 @@
       <option name="presentableId" value="Default" />
       <updated>1574172507637</updated>
     </task>
+    <task id="LOCAL-00001" summary="Intellij stuff">
+      <created>1574173096757</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574173096757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.19 at 14h 14m 45s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.19 at 14h 14m 56s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.19 at 14h 19m 08s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -315,6 +291,10 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Intellij stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intellij stuff" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gradlew">
       <provider selected="true" editor-type-id="text-editor">
@@ -337,8 +317,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state relative-caret-position="248">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
