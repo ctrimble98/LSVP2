@@ -36,11 +36,11 @@ public class  Transition {
 	
     @Override
     public String toString() {
-	StringBuilder sb = new StringBuilder();
-	sb.append(this.source+"-");
-	sb.append(Arrays.toString(this.actions)+"-");
-	sb.append(this.target);
-	return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.source+"-");
+        sb.append(Arrays.toString(this.actions)+"-");
+        sb.append(this.target);
+        return sb.toString();
     }
 
     @Override

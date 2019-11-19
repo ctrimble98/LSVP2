@@ -32,7 +32,6 @@ public class SimpleModelChecker implements ModelChecker {
 
 
                 //recurse down
-                //System.out.println(matches);
                 ArrayList<Transition> newTrans = new ArrayList<Transition>(trans);
                 newTrans.add(t);
 
@@ -40,9 +39,7 @@ public class SimpleModelChecker implements ModelChecker {
                     if (!visitedStates.contains(t.getTarget())) {
                         matches = checkState(model, constraint, query, states.get(t.getTarget()), new HashSet<String>(visitedStates), newTrans);
                     } else {
-                        //TODO add loops
-                        Loop l = new Loop(newTrans);
-                        loops.add(l);
+                        loops.add(new Loop(newTrans));
                     }
                 }
 

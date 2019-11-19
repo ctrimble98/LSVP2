@@ -1,19 +1,21 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 public class Loop {
 
-    private ArrayList<Transition> transitions;
+    private List<Transition> transitions;
 
     public Loop(ArrayList<Transition> transitions) {
-        this.transitions = transitions;
+        int i = 0;
+        int last = transitions.size() - 1;
+        while (!transitions.get(i).getSource().equals(transitions.get(last).getTarget())) {
+            i++;
+        }
+        this.transitions = transitions.subList(i, transitions.size());
     }
 
-    public ArrayList<Transition> getTransitions() {
+    public List<Transition> getTransitions() {
         return transitions;
     }
 
@@ -37,11 +39,12 @@ public class Loop {
 
     @Override
     public String toString() {
-        String s = "";
+
+        StringBuilder sb = new StringBuilder();
         for (Transition t: transitions) {
-            s += t.getSource() + " -> ";
+            sb.append(t.getSource() + " -> ");
         }
-        s += transitions.get(transitions.size()-1).getTarget();
-        return s;
+        sb.append(transitions.get(transitions.size()-1).getTarget());
+        return sb.toString();
     }
 }
