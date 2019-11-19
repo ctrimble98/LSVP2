@@ -1,6 +1,7 @@
 package modelChecker;
 
 import formula.stateFormula.StateFormula;
+import model.Loop;
 import model.Model;
 import model.State;
 import model.Transition;
@@ -12,12 +13,11 @@ import java.util.HashSet;
 
 public class SimpleModelChecker implements ModelChecker {
 
-    private ArrayList<String> trace = new ArrayList<String>();
-
-
     private HashMap<String, State> states = new HashMap<String, State>();
+    private ArrayList<String> trace = new ArrayList<String>();
+    private HashSet<Loop> loops = new HashSet<Loop>();
 
-    private boolean checkState(Model model, StateFormula constraint, StateFormula query, State currentState, HashSet<String> visitedStates) {
+    private boolean checkState(Model model, StateFormula constraint, StateFormula query, State currentState, HashSet<String> visitedStates, ArrayList<Transition> trans) {
         visitedStates.add(currentState.getName());
         System.out.println(currentState.getName());
         //loop through all transitions from thi state and recur
@@ -29,11 +29,21 @@ public class SimpleModelChecker implements ModelChecker {
                 //TODO check if constraint applies in this case
                 boolean matches = true;
 
+
+
                 //recurse down
                 //System.out.println(matches);
+                ArrayList<Transition> newTrans = new ArrayList<Transition>(trans);
+                newTrans.add(t);
 
-                if (matches && !visitedStates.contains(t.getTarget())) {
-                    matches = checkState(model, constraint, query, states.get(t.getTarget()), new HashSet<String>(visitedStates));
+                if (matches) {
+                    if (!visitedStates.contains(t.getTarget())) {
+                        matches = checkState(model, constraint, query, states.get(t.getTarget()), new HashSet<String>(visitedStates), newTrans);
+                    } else {
+                        //TODO add loops
+                        Loop l = new Loop(newTrans);
+                        loops.add(l);
+                    }
                 }
 
                 if (!matches) {
@@ -58,7 +68,7 @@ public class SimpleModelChecker implements ModelChecker {
                 HashSet<String> visitedStates = new HashSet<String>();
 
 
-                if (!checkState(model, constraint, query, s, visitedStates)) {
+                if (!checkState(model, constraint, query, s, visitedStates, new ArrayList<Transition>())) {
                     System.out.println("Trace");
                     for (String st: getTrace()) {
                         System.out.println(st);
@@ -68,6 +78,10 @@ public class SimpleModelChecker implements ModelChecker {
 
                 System.out.println();
             }
+        }
+
+        for (Loop l: loops) {
+            System.out.println(l);
         }
 
         return true;

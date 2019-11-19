@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Each transition may have a set of actions to be performed. 
@@ -40,6 +41,19 @@ public class  Transition {
 	sb.append(Arrays.toString(this.actions)+"-");
 	sb.append(this.target);
 	return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(source, target);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof  Transition) {
+            return other.hashCode() == this.hashCode();
+        }
+        return false;
     }
 	
 }

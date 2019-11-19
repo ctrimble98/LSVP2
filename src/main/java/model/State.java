@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashSet;
+
 /**
  * 
  * */
@@ -7,6 +9,7 @@ public class State {
     private boolean init;
     private String name;
     private String [] label;
+    private HashSet<Loop> loops = new HashSet<Loop>();
 	
     /**
      * Is state an initial state
@@ -31,5 +34,16 @@ public class State {
     public String[] getLabel() {
 	return label;
     }
-	
+
+    /**
+     * Returns the loops the state is in
+     * @return Set of loops
+     */
+    public HashSet<Loop> getLoops() {
+        return loops;
+    }
+
+    public void addLoop(Loop loop) {
+        loops.add(loop);
+    }
 }
