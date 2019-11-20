@@ -1,10 +1,16 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
+import formula.Result;
 import formula.stateFormula.*;
 import model.Model;
 import model.State;
+import model.Transition;
+import modelChecker.ModelChecker;
+import modelChecker.SimpleModelChecker;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Next extends PathFormula {
@@ -27,7 +33,11 @@ public class Next extends PathFormula {
     }
 
     @Override
-    public boolean checkFormula(Model model, State currentState) {
-        return false;
+    public Result checkFormula(Model model, State currentState) {
+
+        State nextState = model.getStatesMap().get(currentTransition.getTarget());
+        ModelChecker mc = new SimpleModelChecker();
+
+        return new Result(mc.checkState(model, stateFormula, null, nextState, new HashSet<String>(), new ArrayList<Transition>()), false);
     }
 }

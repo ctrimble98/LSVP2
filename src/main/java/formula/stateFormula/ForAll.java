@@ -4,6 +4,7 @@ import formula.*;
 import formula.pathFormula.PathFormula;
 import model.Model;
 import model.State;
+import model.Transition;
 
 public class ForAll extends StateFormula {
     public final PathFormula pathFormula;
@@ -21,7 +22,8 @@ public class ForAll extends StateFormula {
     }
 
     @Override
-    public boolean checkFormula(Model model, State currentState) {
-        return pathFormula.checkFormula(model, currentState);
+    public Result checkFormula(Model model, State currentState) {
+        boolean result = pathFormula.checkFormula(model, currentState);
+        return new Result(result, result);
     }
 }

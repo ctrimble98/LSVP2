@@ -8,49 +8,11 @@ import java.util.*;
 
 public class SimpleModelChecker implements ModelChecker {
 
-    private Map<String, State> states = new HashMap<String, State>();
     private List<String> trace = new ArrayList<String>();
-    private Set<Loop> loops = new HashSet<Loop>();
-
-    private boolean checkState(Model model, StateFormula constraint, StateFormula query, State currentState, HashSet<String> visitedStates, List<Transition> trans) {
-        visitedStates.add(currentState.getName());
-        System.out.println(currentState.getName());
-        //loop through all transitions from thi state and recur
-
-        for (Transition t:model.getTransitions()) {
-            //check if the current state is the source of transition
-            if (t.getSource().equals(currentState.getName())) {
-
-                //TODO check if constraint applies in this case
-                boolean matches = true;
-
-                //recurse down
-                List<Transition> newTrans = new ArrayList<Transition>(trans);
-                newTrans.add(t);
-
-                if (matches) {
-                    if (!visitedStates.contains(t.getTarget())) {
-                        matches = checkState(model, constraint, query, states.get(t.getTarget()), new HashSet<String>(visitedStates), newTrans);
-                    } else {
-                        loops.add(new Loop(newTrans));
-                    }
-                }
-
-                if (!matches) {
-                    //TODO build up trace using transition and state
-                    trace.add(currentState.getName());
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     @Override
     public boolean check(Model model, StateFormula constraint, StateFormula query) {
-        for (State s:model.getStates()) {
-            states.put(s.getName(), s);
-        }
+        model.fillStatesMap();
         System.out.println(constraint instanceof ThereExists);
 
 
@@ -58,8 +20,7 @@ public class SimpleModelChecker implements ModelChecker {
             if (s.isInit()) {
                 HashSet<String> visitedStates = new HashSet<String>();
 
-
-                if (!checkState(model, constraint, query, s, visitedStates, new ArrayList<Transition>())) {
+                if (!query.checkFormula(model, s) {
                     System.out.println("Trace");
                     for (String st: getTrace()) {
                         System.out.println(st);
@@ -71,7 +32,7 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
-        for (Loop l: loops) {
+        for (Loop l: model.getLoops()) {
             System.out.println(l);
         }
 

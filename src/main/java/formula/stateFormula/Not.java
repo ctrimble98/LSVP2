@@ -1,8 +1,10 @@
 package formula.stateFormula;
 
 import formula.FormulaParser;
+import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 public class Not extends StateFormula {
     public final StateFormula stateFormula;
@@ -20,7 +22,9 @@ public class Not extends StateFormula {
     }
 
     @Override
-    public boolean checkFormula(Model model, State currentState) {
-        return !stateFormula.checkFormula(model, currentState);
+    public Result checkFormula(Model model, State currentState) {
+        Result childResult = stateFormula.checkFormula(model, currentState);
+        childResult.holds = !childResult.holds;
+        return childResult;
     }
 }

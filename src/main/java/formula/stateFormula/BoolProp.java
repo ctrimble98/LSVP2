@@ -1,7 +1,9 @@
 package formula.stateFormula;
 
+import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 public class BoolProp extends StateFormula {
     public final boolean value;
@@ -17,7 +19,8 @@ public class BoolProp extends StateFormula {
     }
 
     @Override
-    public boolean checkFormula(Model model, State currentState) {
-        return value;
+    public Result checkFormula(Model model, State currentState) {
+
+        return new Result(value, false);
     }
 }

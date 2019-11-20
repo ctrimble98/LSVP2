@@ -4,6 +4,7 @@ import formula.FormulaParser;
 import formula.stateFormula.*;
 import model.Model;
 import model.State;
+import model.Transition;
 
 import java.util.*;
 

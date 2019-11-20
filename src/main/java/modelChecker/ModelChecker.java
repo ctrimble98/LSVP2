@@ -2,6 +2,11 @@ package modelChecker;
 
 import formula.stateFormula.StateFormula;
 import model.Model;
+import model.State;
+import model.Transition;
+
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Defines the interface to model checker.

@@ -2,6 +2,10 @@ package model;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import com.google.gson.Gson;
 
@@ -11,6 +15,8 @@ import com.google.gson.Gson;
 public class Model {
     State[] states;
     Transition[] transitions;
+    private Map<String, State> statesMap = new HashMap<String, State>();
+    private Set<Loop> loops = new HashSet<Loop>();
 
     public static Model parseModel(String filePath) throws IOException {
         Gson gson = new Gson();
@@ -39,4 +45,17 @@ public class Model {
         return transitions;
     }
 
+    public Map<String, State> getStatesMap() {
+        return statesMap;
+    }
+
+    public Set<Loop> getLoops() {
+        return loops;
+    }
+
+    public void fillStatesMap() {
+        for (State s: states) {
+            statesMap.put(s.getName(), s);
+        }
+    }
 }

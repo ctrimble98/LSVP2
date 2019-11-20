@@ -1,7 +1,9 @@
 package formula.stateFormula;
 
+import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 public class Or extends StateFormula {
     public final StateFormula left;
@@ -22,7 +24,9 @@ public class Or extends StateFormula {
     }
 
     @Override
-    public boolean checkFormula(Model model, State currentState) {
-        return left.checkFormula(model, currentState) || right.checkFormula(model, currentState);
+    public Result checkFormula(Model model, State currentState, Transition currentTransition) {
+        Result leftResult = left.checkFormula(model, currentState);
+        Result rightResult = right.checkFormula(model, currentState);
+        return new Result(leftResult.holds || rightResult.holds, leftResult.continueSearch || rightResult.continueSearch);
     }
 }
