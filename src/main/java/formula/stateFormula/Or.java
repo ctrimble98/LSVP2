@@ -3,7 +3,6 @@ package formula.stateFormula;
 import formula.Result;
 import model.Model;
 import model.State;
-import model.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +39,6 @@ public class Or extends StateFormula {
             trace = new ArrayList<String>();
         }
 
-        return new Result(leftResult.holds || rightResult.holds, leftResult.continueSearch || rightResult.continueSearch, trace);
+        return new Result(leftResult.holds || rightResult.holds, trace);
     }
 }

@@ -1,12 +1,10 @@
 package formula.stateFormula;
 
 import formula.FormulaParser;
-import formula.PathResult;
 import formula.Result;
 import formula.pathFormula.PathFormula;
 import model.Model;
 import model.State;
-import model.Transition;
 
 import java.util.List;
 import java.util.Set;
@@ -28,17 +26,17 @@ public class ThereExists extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        Set<PathResult> paths = pathFormula.checkFormula(model, currentState);
+        Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
         List<String> trace = null;
-        for (PathResult result:paths) {
+        for (Result result:paths) {
             if (result.holds) {
-                return new Result(true, false, null);
+                return new Result(true, null);
             } else {
                 trace = result.trace;
             }
         }
 
-        return new Result(false, false, trace);
+        return new Result(false, trace);
     }
 }

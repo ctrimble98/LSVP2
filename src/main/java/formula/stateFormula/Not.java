@@ -4,7 +4,6 @@ import formula.FormulaParser;
 import formula.Result;
 import model.Model;
 import model.State;
-import model.Transition;
 
 public class Not extends StateFormula {
     public final StateFormula stateFormula;

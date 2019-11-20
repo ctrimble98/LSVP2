@@ -41,14 +41,14 @@ public class Until extends PathFormula {
     }
 
     @Override
-    public Set<PathResult> checkFormula(Model model, State currentState) {
+    public Set<Result> checkFormula(Model model, State currentState) {
         return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
     }
 
-    private Set<PathResult> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<Result> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
 
-        Set<PathResult> results = new HashSet<PathResult>();
+        Set<Result> results = new HashSet<Result>();
 
         //loop through all transitions from thi state and recur
         for (Transition t:model.getTransitions()) {
@@ -68,16 +68,16 @@ public class Until extends PathFormula {
 
                     if (!rightRes.holds || !rightActionMatch) {
                         //left res doesn't hold and neither does right res, fail
-                        results.add(new PathResult(false, leftRes.trace));
+                        results.add(new Result(false, leftRes.trace));
                     } else {
                         //left res down't hold but right res does, success
-                        results.add(new PathResult(true, null));
+                        results.add(new Result(true, null));
                     }
                 } else {
                     //left res holds so continue
-                    Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                    Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                    for (PathResult res:recurDown) {
+                    for (Result res:recurDown) {
                         if (res.trace != null) {
                             res.trace.add(currentState.getName());
                         }

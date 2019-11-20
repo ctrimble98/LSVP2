@@ -4,7 +4,6 @@ import formula.*;
 import formula.pathFormula.PathFormula;
 import model.Model;
 import model.State;
-import model.Transition;
 
 import java.util.List;
 import java.util.Set;
@@ -26,13 +25,13 @@ public class ForAll extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        Set<PathResult> paths = pathFormula.checkFormula(model, currentState);
+        Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
 
         boolean allMatch = true;
 
         List<String> trace = null;
-        for (PathResult result:paths) {
+        for (Result result:paths) {
             if (!result.holds) {
                 allMatch = false;
                 trace = result.trace;
@@ -40,6 +39,6 @@ public class ForAll extends StateFormula {
             }
         }
 
-        return new Result(allMatch, false, trace);
+        return new Result(allMatch, trace);
     }
 }

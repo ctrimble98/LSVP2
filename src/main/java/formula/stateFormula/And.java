@@ -3,7 +3,6 @@ package formula.stateFormula;
 import formula.Result;
 import model.Model;
 import model.State;
-import model.Transition;
 
 public class And extends StateFormula {
     public final StateFormula left;
@@ -30,12 +29,12 @@ public class And extends StateFormula {
 
         if (!leftResult.holds) {
             //leftResult.trace.add(currentState.getName());
-            return new Result(false, leftResult.continueSearch || rightResult.continueSearch, leftResult.trace);
+            return new Result(false, leftResult.trace);
         } else if (!rightResult.holds) {
             //rightResult.trace.add(currentState.getName());
-            return new Result(false, leftResult.continueSearch || rightResult.continueSearch, rightResult.trace);
+            return new Result(false, rightResult.trace);
         } else {
-            return new Result(true, leftResult.continueSearch || rightResult.continueSearch, null);
+            return new Result(true, null);
         }
     }
 }

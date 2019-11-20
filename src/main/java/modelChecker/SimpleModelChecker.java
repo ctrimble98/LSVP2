@@ -2,7 +2,6 @@ package modelChecker;
 
 import formula.Result;
 import formula.stateFormula.*;
-import formula.pathFormula.*;
 import model.*;
 
 import java.util.*;

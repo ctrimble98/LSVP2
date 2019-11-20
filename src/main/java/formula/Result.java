@@ -1,15 +1,15 @@
 package formula;
 
 import java.util.List;
+import java.util.Set;
 
 public class Result {
     public boolean holds;
-    public boolean continueSearch;
+
     public List<String> trace;
 
-    public Result(boolean holds, boolean continueSearch, List<String> trace) {
+    public Result(boolean holds, List<String> trace) {
         this.holds = holds;
-        this.continueSearch = continueSearch;
         this.trace = trace;
     }
 }

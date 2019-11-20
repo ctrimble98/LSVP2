@@ -1,10 +1,8 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
-import formula.PathResult;
 import formula.Result;
 import formula.stateFormula.*;
-import model.Loop;
 import model.Model;
 import model.State;
 import model.Transition;
@@ -31,16 +29,16 @@ public class Always extends PathFormula {
     }
 
     @Override
-    public Set<PathResult> checkFormula(Model model, State currentState) {
-        return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
+    public Set<Result> checkFormula(Model model, State currentState) {
+        return checkPath(model, currentState, new HashSet<String>());
     }
 
-    private Set<PathResult> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<Result> checkPath(Model model, State currentState, HashSet<String> visitedStates) {
         visitedStates.add(currentState.getName());
 
         Result stateResult = stateFormula.checkFormula(model, currentState);
 
-        Set<PathResult> results = new HashSet<PathResult>();
+        Set<Result> results = new HashSet<Result>();
 
         if (stateResult.holds) {
             boolean lastState = true;
@@ -54,9 +52,9 @@ public class Always extends PathFormula {
 
                     //check if we have been to this target before
                     if (!visitedStates.contains(t.getTarget())) {
-                        Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                        Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                        for (PathResult res:recurDown) {
+                        for (Result res:recurDown) {
                             if (res.trace != null) {
                                 res.trace.add(currentState.getName());
                             }
@@ -65,17 +63,17 @@ public class Always extends PathFormula {
                         results.addAll(recurDown);
                     } else {
                         //this target state has been visited before so we're at the end of a loop
-                        results.add(new PathResult(true, null));
+                        results.add(new Result(true, null));
                     }
                 }
             }
 
             //this is the legal end of an execution so add it
             if (lastState) {
-                results.add(new PathResult(true, null));
+                results.add(new Result(true, null));
             }
         } else {
-            results.add(new PathResult(false, stateResult.trace));
+            results.add(new Result(false, stateResult.trace));
         }
 
         return results;

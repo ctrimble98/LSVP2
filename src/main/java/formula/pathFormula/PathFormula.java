@@ -1,13 +1,10 @@
 package formula.pathFormula;
 
-import formula.PathResult;
 import formula.Result;
-import model.Loop;
 import model.Model;
 import model.State;
 import model.Transition;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public abstract class PathFormula {
@@ -26,5 +23,5 @@ public abstract class PathFormula {
         return actionMatch;
     }
 
-    public abstract Set<PathResult> checkFormula(Model model, State currentState);
+    public abstract Set<Result> checkFormula(Model model, State currentState);
 }

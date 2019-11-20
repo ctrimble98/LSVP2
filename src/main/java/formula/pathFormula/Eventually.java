@@ -1,7 +1,6 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
-import formula.PathResult;
 import formula.Result;
 import formula.stateFormula.*;
 import model.Model;
@@ -37,22 +36,22 @@ public class Eventually extends PathFormula {
     }
 
     @Override
-    public Set<PathResult>  checkFormula(Model model, State currentState) {
+    public Set<Result>  checkFormula(Model model, State currentState) {
         return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
     }
 
-    private Set<PathResult>  checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<Result>  checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
 
         Result stateResult = stateFormula.checkFormula(model, currentState);
 
-        Set<PathResult> results = new HashSet<PathResult>();
+        Set<Result> results = new HashSet<Result>();
 
         //TODO add actions
 
         //if the condition holds this is a positive result
         if (stateResult.holds) {
-            results.add(new PathResult(true, null));
+            results.add(new Result(true, null));
         } else {
             boolean lastState = true;
 
@@ -65,9 +64,9 @@ public class Eventually extends PathFormula {
 
                     //check if we have been to this target before
                     if (!visitedStates.contains(t.getTarget())) {
-                        Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                        Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                        for (PathResult res:recurDown) {
+                        for (Result res:recurDown) {
                             if (res.trace != null) {
                                 res.trace.add(currentState.getName());
                             }
@@ -76,14 +75,14 @@ public class Eventually extends PathFormula {
                         results.addAll(recurDown);
                     } else {
                         //this target state has been visited before so we're at the end of a loop, and haven't met condition
-                        results.add(new PathResult(false, stateResult.trace));
+                        results.add(new Result(false, stateResult.trace));
                     }
                 }
             }
 
             //reach end of execution without meeting the condition
             if (lastState) {
-                results.add(new PathResult(false, stateResult.trace));
+                results.add(new Result(false, stateResult.trace));
             }
         }
         return results;
