@@ -1,15 +1,18 @@
 package formula.stateFormula;
 
 import formula.FormulaParser;
+import formula.PathResult;
 import formula.Result;
 import formula.pathFormula.PathFormula;
 import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.List;
+import java.util.Set;
+
 public class ThereExists extends StateFormula {
     public final PathFormula pathFormula;
-    private boolean satisfied = false;
 
     public ThereExists(PathFormula pathFormula) {
         this.pathFormula = pathFormula;
@@ -25,17 +28,17 @@ public class ThereExists extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        Result r = pathFormula.checkFormula(model, currentState);
+        Set<PathResult> paths = pathFormula.checkFormula(model, currentState);
 
-        if (satisfied) {
-            r.holds = true;
-            r.trace = null;
-        } else if (r.holds) {
-            satisfied = true;
-            r.holds = true;
-            r.continueSearch = false;
-            r.trace = null;
+        List<String> trace = null;
+        for (PathResult result:paths) {
+            if (result.holds) {
+                return new Result(true, false, null);
+            } else {
+                trace = result.trace;
+            }
         }
-        return r;
+
+        return new Result(false, false, trace);
     }
 }

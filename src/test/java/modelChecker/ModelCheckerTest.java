@@ -25,12 +25,12 @@ public class ModelCheckerTest {
         try {
             Model model = Model.parseModel("src/test/resources/model1.json");
 
-            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraint1.json").parse();
-            StateFormula query = new FormulaParser("src/test/resources/ctl1.json").parse();
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/test.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
 
-            assertTrue(mc.check(model, fairnessConstraint, /*query*/fairnessConstraint));
+            assertTrue(mc.check(model, fairnessConstraint, query));
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.toString());

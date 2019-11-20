@@ -1,6 +1,7 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
+import formula.PathResult;
 import formula.Result;
 import formula.stateFormula.*;
 import model.Loop;
@@ -30,34 +31,53 @@ public class Always extends PathFormula {
     }
 
     @Override
-    public Result checkFormula(Model model, State currentState) {
+    public Set<PathResult> checkFormula(Model model, State currentState) {
         return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
     }
 
-    private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<PathResult> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println("Always " + currentState.getName());
 
-        Result result = stateFormula.checkFormula(model, currentState);
+        Result stateResult = stateFormula.checkFormula(model, currentState);
 
-        if (!result.holds) {
-            return new Result(false, false, result.trace);
-        }
+        Set<PathResult> results = new HashSet<PathResult>();
 
+        if (stateResult.holds) {
+            boolean lastState = true;
 
-        //loop through all transitions from thi state and recur
-        for (Transition t:model.getTransitions()) {
-            //check if the current state is the source of transition
-            if (t.getSource().equals(currentState.getName()) && !visitedStates.contains(t.getTarget())) {
+            //loop through all transitions from thi state and recur
+            for (Transition t:model.getTransitions()) {
+                //check if the current state is the source of transition
+                if (t.getSource().equals(currentState.getName())) {
+                    //this isn't the end of a chain of execution
+                    lastState = false;
 
-                Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                    //check if we have been to this target before
+                    if (!visitedStates.contains(t.getTarget())) {
+                        Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                if (!recurDown.holds) {
-                    recurDown.trace.add(currentState.getName());
-                    return new Result(false, false, recurDown.trace);
+                        for (PathResult res:recurDown) {
+                            if (res.trace != null) {
+                                res.trace.add(currentState.getName());
+                            }
+                        }
+
+                        results.addAll(recurDown);
+                    } else {
+                        //this target state has been visited before so we're at the end of a loop
+                        results.add(new PathResult(true, null));
+                    }
                 }
             }
+
+            //this is the legal end of an execution so add it
+            if (lastState) {
+                results.add(new PathResult(true, null));
+            }
+        } else {
+            results.add(new PathResult(false, stateResult.trace));
         }
-        return new Result(true, false, null);
+
+        return results;
     }
 }

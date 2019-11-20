@@ -1,5 +1,6 @@
 package formula.pathFormula;
 
+import formula.PathResult;
 import formula.Result;
 import model.Loop;
 import model.Model;
@@ -13,5 +14,17 @@ public abstract class PathFormula {
 
     public abstract void writeToBuffer(StringBuilder buffer);
 
-    public abstract Result checkFormula(Model model, State currentState);
+    protected boolean actionMatch(Set<String> actions, Transition t) {
+        //check that a transition action matches the left actions
+        boolean actionMatch = false;
+        for (String action:t.getActions()) {
+            if (actions.contains(action)) {
+                actionMatch = true;
+                break;
+            }
+        }
+        return actionMatch;
+    }
+
+    public abstract Set<PathResult> checkFormula(Model model, State currentState);
 }

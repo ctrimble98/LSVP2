@@ -6,6 +6,9 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.List;
+import java.util.Set;
+
 public class ForAll extends StateFormula {
     public final PathFormula pathFormula;
 
@@ -23,8 +26,20 @@ public class ForAll extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        //TODO is this right?
-        Result result = pathFormula.checkFormula(model, currentState);
-        return result;
+        Set<PathResult> paths = pathFormula.checkFormula(model, currentState);
+
+
+        boolean allMatch = true;
+
+        List<String> trace = null;
+        for (PathResult result:paths) {
+            if (!result.holds) {
+                allMatch = false;
+                trace = result.trace;
+                break;
+            }
+        }
+
+        return new Result(allMatch, false, trace);
     }
 }

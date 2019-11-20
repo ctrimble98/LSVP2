@@ -1,6 +1,7 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
+import formula.PathResult;
 import formula.Result;
 import formula.stateFormula.*;
 import model.Model;
@@ -36,46 +37,55 @@ public class Eventually extends PathFormula {
     }
 
     @Override
-    public Result checkFormula(Model model, State currentState) {
+    public Set<PathResult>  checkFormula(Model model, State currentState) {
         return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
     }
 
-    private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<PathResult>  checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println("Eventually " + currentState.getName());
 
-        Result result = stateFormula.checkFormula(model, currentState);
+        Result stateResult = stateFormula.checkFormula(model, currentState);
 
-        if (result.holds) {
-            return result;
-        }
+        Set<PathResult> results = new HashSet<PathResult>();
 
-        Result fail = null;
+        //TODO add actions
 
-        //loop through all transitions from thi state and recur
-        for (Transition t:model.getTransitions()) {
-            //check if the current state is the source of transition
-            if (t.getSource().equals(currentState.getName()) && !visitedStates.contains(t.getTarget())) {
+        //if the condition holds this is a positive result
+        if (stateResult.holds) {
+            results.add(new PathResult(true, null));
+        } else {
+            boolean lastState = true;
 
-                Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+            //loop through all transitions from thi state and recur
+            for (Transition t : model.getTransitions()) {
+                //check if the current state is the source of transition
+                if (t.getSource().equals(currentState.getName())) {
+                    //this isn't the end of a chain of execution
+                    lastState = false;
 
-                if (!recurDown.holds) {
-                    recurDown.trace.add(currentState.getName());
-                    fail = new Result(false, false, recurDown.trace);
-                } else {
-                    //this condition holds
-                    return new Result(true, false, null);
+                    //check if we have been to this target before
+                    if (!visitedStates.contains(t.getTarget())) {
+                        Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+
+                        for (PathResult res:recurDown) {
+                            if (res.trace != null) {
+                                res.trace.add(currentState.getName());
+                            }
+                        }
+
+                        results.addAll(recurDown);
+                    } else {
+                        //this target state has been visited before so we're at the end of a loop, and haven't met condition
+                        results.add(new PathResult(false, stateResult.trace));
+                    }
                 }
             }
-        }
 
-
-        //create a trace from this point if there isn't one to extend
-        if (fail == null) {
-            List<String> trace = new ArrayList<>();
-            trace.add(currentState.getName());
-            fail = new Result(false, false, trace);
+            //reach end of execution without meeting the condition
+            if (lastState) {
+                results.add(new PathResult(false, stateResult.trace));
+            }
         }
-        return fail;
+        return results;
     }
 }

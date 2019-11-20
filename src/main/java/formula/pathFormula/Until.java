@@ -41,13 +41,15 @@ public class Until extends PathFormula {
     }
 
     @Override
-    public Result checkFormula(Model model, State currentState) {
+    public Set<PathResult> checkFormula(Model model, State currentState) {
         return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
     }
 
-    private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<PathResult> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println("Until " + currentState.getName());
+
+        Set<PathResult> results = new HashSet<PathResult>();
+
         //loop through all transitions from thi state and recur
         for (Transition t:model.getTransitions()) {
             //check if the current state is the source of transition
@@ -55,49 +57,38 @@ public class Until extends PathFormula {
 
                 Result leftRes = left.checkFormula(model, currentState);
 
-                //check that a transition action matches the left actions
-                boolean leftActionMatch = false;
-                for (String action:t.getActions()) {
-                    if (leftActions.contains(action)) {
-                        leftActionMatch = true;
-                        break;
-                    }
-                }
+                boolean leftActionMatch = actionMatch(leftActions, t);
 
                 if (!leftRes.holds || !leftActionMatch) {
 
                     Result rightRes = left.checkFormula(model, currentState);
 
                     //check that a transition action matches the right actions
-                    boolean rightActionMatch = false;
-                    for (String action:t.getActions()) {
-                        if (rightActions.contains(action)) {
-                            rightActionMatch = true;
-                            break;
-                        }
-                    }
+                    boolean rightActionMatch = actionMatch(rightActions, t);
 
                     if (!rightRes.holds || !rightActionMatch) {
                         //left res doesn't hold and neither does right res, fail
-                        return new Result(false, false, leftRes.trace);
+                        results.add(new PathResult(false, leftRes.trace));
+                    } else {
+                        //left res down't hold but right res does, success
+                        results.add(new PathResult(true, null));
                     }
-
-                    //left res down't hold but right res does, success
-                    //but need to check the other transitions
                 } else {
                     //left res holds so continue
-                    Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                    Set<PathResult> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                    //fail if later test fails
-                    if (!recurDown.holds) {
-                        recurDown.trace.add(currentState.getName());
-                        return new Result(false, false, recurDown.trace);
+                    for (PathResult res:recurDown) {
+                        if (res.trace != null) {
+                            res.trace.add(currentState.getName());
+                        }
                     }
+
+                    results.addAll(recurDown);
                 }
             }
         }
 
         //condition held return success
-        return new Result(true, false, null);
+        return results;
     }
 }

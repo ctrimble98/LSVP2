@@ -1,6 +1,7 @@
 package formula.pathFormula;
 
 import formula.FormulaParser;
+import formula.PathResult;
 import formula.Result;
 import formula.stateFormula.*;
 import model.Model;
@@ -33,12 +34,9 @@ public class Next extends PathFormula {
     }
 
     @Override
-    public Result checkFormula(Model model, State currentState) {
+    public Set<PathResult> checkFormula(Model model, State currentState) {
+        Set<PathResult> results = new HashSet<>();
 
-//        State nextState = model.getStatesMap().get(currentTransition.getTarget());
-//        ModelChecker mc = new SimpleModelChecker();
-//
-//        return new Result(mc.checkState(model, stateFormula, null, nextState, new HashSet<String>(), new ArrayList<Transition>()), false);
         for (Transition t:model.getTransitions()) {
             //check if the current state is the source of transition
             if (t.getSource().equals(currentState.getName())) {
@@ -48,11 +46,13 @@ public class Next extends PathFormula {
 
                 if (!result.holds) {
                     result.trace.add(currentState.getName());
-                    return result;
+                    results.add(new PathResult(false, result.trace));
+                } else {
+                    results.add(new PathResult(true, null));
                 }
             }
         }
 
-        return new Result(true, false, null);
+        return results;
     }
 }
