@@ -1,5 +1,6 @@
 package modelChecker;
 
+import formula.Result;
 import formula.stateFormula.*;
 import formula.pathFormula.*;
 import model.*;
@@ -20,9 +21,13 @@ public class SimpleModelChecker implements ModelChecker {
             if (s.isInit()) {
                 HashSet<String> visitedStates = new HashSet<String>();
 
-                if (!query.checkFormula(model, s) {
+                Result res = query.checkFormula(model, s);
+
+                trace = res.trace;
+
+                if (!res.holds) {
                     System.out.println("Trace");
-                    for (String st: getTrace()) {
+                    for (String st: res.trace) {
                         System.out.println(st);
                     }
                     return false;
