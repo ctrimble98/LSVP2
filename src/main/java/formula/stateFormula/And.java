@@ -27,6 +27,15 @@ public class And extends StateFormula {
     public Result checkFormula(Model model, State currentState) {
         Result leftResult = left.checkFormula(model, currentState);
         Result rightResult = right.checkFormula(model, currentState);
-        return new Result(leftResult.holds && rightResult.holds, leftResult.continueSearch || rightResult.continueSearch);
+
+        if (!leftResult.holds) {
+            leftResult.trace.add(currentState.getName());
+            return new Result(false, leftResult.continueSearch || rightResult.continueSearch, leftResult.trace);
+        } else if (!rightResult.holds) {
+            rightResult.trace.add(currentState.getName());
+            return new Result(false, leftResult.continueSearch || rightResult.continueSearch, rightResult.trace);
+        } else {
+            return new Result(true, leftResult.continueSearch || rightResult.continueSearch, null);
+        }
     }
 }

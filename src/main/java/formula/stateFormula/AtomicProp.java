@@ -5,6 +5,9 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AtomicProp extends StateFormula {
     public final String label;
 
@@ -23,10 +26,13 @@ public class AtomicProp extends StateFormula {
 
         for (String l:labels) {
             if (l.equals(label)) {
-                return new Result(true, false);
+                return new Result(true, false, null);
             }
         }
-        return new Result(false, false);
+
+        List<String> trace = new ArrayList<String>();
+        trace.add(currentState.getName());
+        return new Result(false, false, trace);
     }
 
 }

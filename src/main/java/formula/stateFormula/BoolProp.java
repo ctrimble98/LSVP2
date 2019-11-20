@@ -5,6 +5,9 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BoolProp extends StateFormula {
     public final boolean value;
 
@@ -21,6 +24,14 @@ public class BoolProp extends StateFormula {
     @Override
     public Result checkFormula(Model model, State currentState) {
 
-        return new Result(value, false);
+        List<String> trace;
+        if (value) {
+            trace = null;
+        } else {
+            trace = new ArrayList<String>();
+            trace.add(currentState.getName());
+        }
+
+        return new Result(value, false, trace);
     }
 }

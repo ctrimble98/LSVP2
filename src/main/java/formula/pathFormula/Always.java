@@ -52,8 +52,8 @@ public class Always extends PathFormula {
                 Result recurDown = checkPath(model, currentState, visitedStates);
 
                 if (!recurDown.holds) {
-                    result.trace.add(currentState.getName());
-                    return new Result(false, false, result.trace);
+                    recurDown.trace.add(currentState.getName());
+                    return new Result(false, false, recurDown.trace);
                 }
 
 //                //recurse down

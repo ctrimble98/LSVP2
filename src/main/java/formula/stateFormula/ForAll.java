@@ -23,7 +23,8 @@ public class ForAll extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        boolean result = pathFormula.checkFormula(model, currentState);
-        return new Result(result, result);
+        //TODO is this right?
+        Result result = pathFormula.checkFormula(model, currentState);
+        return result;
     }
 }

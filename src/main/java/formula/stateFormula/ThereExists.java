@@ -25,14 +25,16 @@ public class ThereExists extends StateFormula {
 
     @Override
     public Result checkFormula(Model model, State currentState) {
-        //TODO Path result result
-        Result r = new Result(false, true);
+        Result r = pathFormula.checkFormula(model, currentState);
+
         if (satisfied) {
             r.holds = true;
-        } else if (pathFormula.checkFormula(model, currentState)) {
+            r.trace = null;
+        } else if (r.holds) {
             satisfied = true;
             r.holds = true;
             r.continueSearch = false;
+            r.trace = null;
         }
         return r;
     }

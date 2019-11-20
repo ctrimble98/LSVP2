@@ -5,6 +5,9 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Or extends StateFormula {
     public final StateFormula left;
     public final StateFormula right;
@@ -24,9 +27,19 @@ public class Or extends StateFormula {
     }
 
     @Override
-    public Result checkFormula(Model model, State currentState, Transition currentTransition) {
+    public Result checkFormula(Model model, State currentState) {
         Result leftResult = left.checkFormula(model, currentState);
         Result rightResult = right.checkFormula(model, currentState);
-        return new Result(leftResult.holds || rightResult.holds, leftResult.continueSearch || rightResult.continueSearch);
+
+        List<String> trace;
+
+        if (leftResult.holds || rightResult.holds) {
+            trace = null;
+        } else {
+            //TODO somehow combine both traces?
+            trace = new ArrayList<String>();
+        }
+
+        return new Result(leftResult.holds || rightResult.holds, leftResult.continueSearch || rightResult.continueSearch, trace);
     }
 }

@@ -35,9 +35,24 @@ public class Next extends PathFormula {
     @Override
     public Result checkFormula(Model model, State currentState) {
 
-        State nextState = model.getStatesMap().get(currentTransition.getTarget());
-        ModelChecker mc = new SimpleModelChecker();
+//        State nextState = model.getStatesMap().get(currentTransition.getTarget());
+//        ModelChecker mc = new SimpleModelChecker();
+//
+//        return new Result(mc.checkState(model, stateFormula, null, nextState, new HashSet<String>(), new ArrayList<Transition>()), false);
+        for (Transition t:model.getTransitions()) {
+            //check if the current state is the source of transition
+            if (t.getSource().equals(currentState.getName())) {
+                //potential next state
 
-        return new Result(mc.checkState(model, stateFormula, null, nextState, new HashSet<String>(), new ArrayList<Transition>()), false);
+                Result result = stateFormula.checkFormula(model, model.getStatesMap().get(t.getTarget()));
+
+                if (!result.holds) {
+                    result.trace.add(currentState.getName());
+                    return result;
+                }
+            }
+        }
+
+        return new Result(true, false, null);
     }
 }

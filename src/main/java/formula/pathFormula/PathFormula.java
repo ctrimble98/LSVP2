@@ -13,5 +13,5 @@ public abstract class PathFormula {
 
     public abstract void writeToBuffer(StringBuilder buffer);
 
-    public abstract Result checkFormula(Model model, State currentState, Transition currentTransition);
+    public abstract Result checkFormula(Model model, State currentState);
 }
