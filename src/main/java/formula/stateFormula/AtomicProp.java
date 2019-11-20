@@ -31,7 +31,7 @@ public class AtomicProp extends StateFormula {
         }
 
         List<String> trace = new ArrayList<String>();
-        trace.add(currentState.getName());
+        //trace.add(currentState.getName());
         return new Result(false, false, trace);
     }
 

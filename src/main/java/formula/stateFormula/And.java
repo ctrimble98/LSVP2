@@ -29,10 +29,10 @@ public class And extends StateFormula {
         Result rightResult = right.checkFormula(model, currentState);
 
         if (!leftResult.holds) {
-            leftResult.trace.add(currentState.getName());
+            //leftResult.trace.add(currentState.getName());
             return new Result(false, leftResult.continueSearch || rightResult.continueSearch, leftResult.trace);
         } else if (!rightResult.holds) {
-            rightResult.trace.add(currentState.getName());
+            //rightResult.trace.add(currentState.getName());
             return new Result(false, leftResult.continueSearch || rightResult.continueSearch, rightResult.trace);
         } else {
             return new Result(true, leftResult.continueSearch || rightResult.continueSearch, null);

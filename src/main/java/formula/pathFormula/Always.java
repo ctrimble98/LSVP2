@@ -36,33 +36,26 @@ public class Always extends PathFormula {
 
     private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println(currentState.getName());
+        System.out.println("Always " + currentState.getName());
+
+        Result result = stateFormula.checkFormula(model, currentState);
+
+        if (!result.holds) {
+            return new Result(false, false, result.trace);
+        }
+
+
         //loop through all transitions from thi state and recur
         for (Transition t:model.getTransitions()) {
             //check if the current state is the source of transition
             if (t.getSource().equals(currentState.getName()) && !visitedStates.contains(t.getTarget())) {
 
-                Result result = stateFormula.checkFormula(model, currentState);
-
-                if (!result.holds) {
-                    result.trace.add(currentState.getName());
-                    return new Result(false, false, result.trace);
-                }
-
-                Result recurDown = checkPath(model, currentState, visitedStates);
+                Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
                 if (!recurDown.holds) {
                     recurDown.trace.add(currentState.getName());
                     return new Result(false, false, recurDown.trace);
                 }
-
-//                //recurse down
-//                List<Transition> newTrans = new ArrayList<Transition>(trans);
-//                newTrans.add(t);
-//
-//                if (visitedStates.contains(t.getTarget())) {
-//                    model.getLoops().add(new Loop(newTrans));
-//                }
             }
         }
         return new Result(true, false, null);

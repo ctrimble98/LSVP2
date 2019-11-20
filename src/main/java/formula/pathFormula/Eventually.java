@@ -42,7 +42,13 @@ public class Eventually extends PathFormula {
 
     private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println(currentState.getName());
+        System.out.println("Eventually " + currentState.getName());
+
+        Result result = stateFormula.checkFormula(model, currentState);
+
+        if (result.holds) {
+            return result;
+        }
 
         Result fail = null;
 
@@ -51,25 +57,18 @@ public class Eventually extends PathFormula {
             //check if the current state is the source of transition
             if (t.getSource().equals(currentState.getName()) && !visitedStates.contains(t.getTarget())) {
 
-                Result result = stateFormula.checkFormula(model, currentState);
+                Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                if (!result.holds) {
-                    result.trace.add(currentState.getName());
-                    fail = new Result(false, false, result.trace);
+                if (!recurDown.holds) {
+                    recurDown.trace.add(currentState.getName());
+                    fail = new Result(false, false, recurDown.trace);
                 } else {
-
-                    Result recurDown = checkPath(model, currentState, visitedStates);
-
-                    if (!recurDown.holds) {
-                        recurDown.trace.add(currentState.getName());
-                        fail = new Result(false, false, recurDown.trace);
-                    } else {
-                        //this condition holds
-                        return new Result(true, false, null);
-                    }
+                    //this condition holds
+                    return new Result(true, false, null);
                 }
             }
         }
+
 
         //create a trace from this point if there isn't one to extend
         if (fail == null) {

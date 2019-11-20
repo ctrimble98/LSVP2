@@ -47,7 +47,7 @@ public class Until extends PathFormula {
 
     private Result checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
         visitedStates.add(currentState.getName());
-        System.out.println(currentState.getName());
+        System.out.println("Until " + currentState.getName());
         //loop through all transitions from thi state and recur
         for (Transition t:model.getTransitions()) {
             //check if the current state is the source of transition
@@ -79,7 +79,6 @@ public class Until extends PathFormula {
 
                     if (!rightRes.holds || !rightActionMatch) {
                         //left res doesn't hold and neither does right res, fail
-                        leftRes.trace.add(currentState.getName());
                         return new Result(false, false, leftRes.trace);
                     }
 
@@ -87,7 +86,7 @@ public class Until extends PathFormula {
                     //but need to check the other transitions
                 } else {
                     //left res holds so continue
-                    Result recurDown = checkPath(model, currentState, visitedStates);
+                    Result recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
                     //fail if later test fails
                     if (!recurDown.holds) {
