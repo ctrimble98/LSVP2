@@ -7,6 +7,7 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -29,17 +30,22 @@ public class ThereExists extends StateFormula {
     public Result checkFormula(Model model, State currentState) {
         Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
-        List<String> trace = null;
-        List<Transition> path = null;
-        for (Result result:paths) {
-            if (result.holds) {
-                return new Result(true, null, null);
-            } else {
-                trace = result.trace;
-                path = result.path;
-            }
-        }
+        if (paths.size() > 0) {
 
-        return new Result(false, trace, path);
+            List<String> trace = null;
+            List<Transition> path = null;
+            for (Result result : paths) {
+                if (result.holds) {
+                    return new Result(true, null, null);
+                } else {
+                    trace = result.trace;
+                    path = result.path;
+                }
+            }
+
+            return new Result(false, trace, path);
+        } else {
+            return new Result(false, new ArrayList<>(), new ArrayList<>());
+        }
     }
 }

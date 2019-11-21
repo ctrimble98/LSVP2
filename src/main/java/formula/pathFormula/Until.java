@@ -87,7 +87,7 @@ public class Until extends PathFormula {
                         Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
 
                         for (Result res : recurDown) {
-                            if (res.trace != null) {
+                            if (!res.holds) {
                                 res.trace.add(currentState.getName());
                                 res.path.add(t);
                             }

@@ -7,7 +7,10 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.List;
 
 public class Eventually extends PathFormula {
     public final StateFormula stateFormula;
@@ -37,20 +40,33 @@ public class Eventually extends PathFormula {
 
     @Override
     public Set<Result>  checkFormula(Model model, State currentState) {
-        return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
+        return checkPath(model, currentState, new HashSet<String>(), new ArrayList<Transition>());
     }
 
-    private Set<Result>  checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<Result> checkPath(Model model, State currentState, HashSet<String> visitedStates, List<Transition> transitions) {
         visitedStates.add(currentState.getName());
 
         Result stateResult = stateFormula.checkFormula(model, currentState);
 
+        List<String> trace = !stateResult.holds ? stateResult.trace : new ArrayList<String>();
+        List<Transition> path = !stateResult.holds ? stateResult.path : new ArrayList<Transition>();
+
         Set<Result> results = new HashSet<Result>();
 
         //TODO add actions
+        boolean seenLeft = false;
+
+        for (Transition t:transitions) {
+            if (actionMatch(leftActions, t)) {
+                seenLeft = true;
+                break;
+            }
+        }
+
+        boolean seenRight = transitions.size() > 0 && actionMatch(rightActions, transitions.get(transitions.size() - 1));
 
         //if the condition holds this is a positive result
-        if (stateResult.holds) {
+        if (seenLeft && seenRight && stateResult.holds) {
             results.add(new Result(true, null, null));
         } else {
             boolean lastState = true;
@@ -64,10 +80,14 @@ public class Eventually extends PathFormula {
 
                     //check if we have been to this target before
                     if (!visitedStates.contains(t.getTarget())) {
-                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
+
+                        List<Transition> newTrans = new ArrayList<Transition>(transitions);
+                        newTrans.add(t);
+
+                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
 
                         for (Result res:recurDown) {
-                            if (res.trace != null) {
+                            if (!res.holds) {
                                 res.trace.add(currentState.getName());
                                 res.path.add(t);
                             }
@@ -76,14 +96,16 @@ public class Eventually extends PathFormula {
                         results.addAll(recurDown);
                     } else {
                         //this target state has been visited before so we're at the end of a loop, and haven't met condition
-                        results.add(new Result(false, stateResult.trace, stateResult.path));
+
+
+                        results.add(new Result(false, trace, path));
                     }
                 }
             }
 
             //reach end of execution without meeting the condition
             if (lastState) {
-                results.add(new Result(false, stateResult.trace, stateResult.path));
+                results.add(new Result(false, trace, path));
             }
         }
         return results;

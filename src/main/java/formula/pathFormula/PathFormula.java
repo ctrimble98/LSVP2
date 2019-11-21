@@ -27,5 +27,6 @@ public abstract class PathFormula {
         return actionMatch;
     }
 
+
     public abstract Set<Result> checkFormula(Model model, State currentState);
 }

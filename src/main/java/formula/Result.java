@@ -15,5 +15,9 @@ public class Result {
         this.holds = holds;
         this.trace = trace;
         this.path = path;
+
+        if (!holds && (trace == null || path == null)) {
+            throw new IllegalArgumentException("Must provide path and trace");
+        }
     }
 }
