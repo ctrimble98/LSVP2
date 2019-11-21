@@ -37,4 +37,20 @@ public class ModelCheckerTest {
         }
     }
 
+    @Test
+    public void mutexTest() {
+        try {
+            Model model = Model.parseModel("src/test/resources/modelmutex.json");
+
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/constraintmutex.json").parse();
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, fairnessConstraint, query));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
 }
