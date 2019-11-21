@@ -127,4 +127,62 @@ public class ModelCheckerTest {
             fail(e.toString());
         }
     }
+
+    @Test
+    public void doubleMutex() {
+        try {
+            Model model = Model.parseModel("src/test/resources/mutex/model.json");
+
+            StateFormula mutex = new FormulaParser("src/test/resources/mutex/mutex.json").parse();
+            StateFormula mutex2 = new FormulaParser("src/test/resources/mutex/mutex2.json").parse();
+
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, mutex, mutex2));
+            assertTrue(mc.check(model, mutex2, mutex));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+
+    @Test
+    public void strongFairWeakFairMutex() {
+        try {
+            Model model = Model.parseModel("src/test/resources/mutex/model.json");
+
+            StateFormula mutex = new FormulaParser("src/test/resources/mutex/mutex.json").parse();
+            StateFormula weakFair = new FormulaParser("src/test/resources/mutex/weakfair.json").parse();
+            StateFormula strongFair = new FormulaParser("src/test/resources/mutex/strongfair.json").parse();
+
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, new And(mutex, strongFair), weakFair));
+            assertTrue(mc.check(model, new And(mutex, weakFair), strongFair));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+
+    @Test
+    public void strongFairWeakFairNoMutex() {
+        try {
+            Model model = Model.parseModel("src/test/resources/mutex/model.json");
+
+            StateFormula weakFair = new FormulaParser("src/test/resources/mutex/weakfair.json").parse();
+            StateFormula strongFair = new FormulaParser("src/test/resources/mutex/strongfair.json").parse();
+
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, strongFair, weakFair));
+            assertTrue(mc.check(model, weakFair, strongFair));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
 }
