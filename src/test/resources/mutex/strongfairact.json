@@ -1,0 +1,6 @@
+{
+  "formula": "E ((wFc(TRUE)))",
+  "w": ["wait1", "wait2"],
+  "c": ["crit1", "crit2"],
+  "l": ["leave1", "leave2"]
+}

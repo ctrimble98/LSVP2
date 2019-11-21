@@ -162,4 +162,25 @@ public class MutexTest {
             fail(e.toString());
         }
     }
+
+    @Test
+    public void strongFairMutexActTest() {
+        try {
+            Model model = Model.parseModel("src/test/resources/mutex/model.json");
+
+            StateFormula mutex = new FormulaParser("src/test/resources/mutex/mutex.json").parse();
+            StateFormula strongFair = new FormulaParser("src/test/resources/mutex/strongfair.json").parse();
+            StateFormula strongFairAct = new FormulaParser("src/test/resources/mutex/strongfairact.json").parse();
+
+            StateFormula constraint = new And(mutex, strongFair);
+
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, constraint, strongFairAct));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
 }
