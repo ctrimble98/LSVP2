@@ -24,6 +24,7 @@ public class ExampleTest {
             Model model = Model.parseModel("src/test/resources/model1.json");
 
             StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraint1.json").parse();
+//            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraint2.json").parse();
             StateFormula query = new FormulaParser("src/test/resources/ctl1.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
@@ -41,6 +42,7 @@ public class ExampleTest {
             Model model = Model.parseModel("src/test/resources/model2.json");
 
             StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraint2.json").parse();
+//            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
             StateFormula query = new FormulaParser("src/test/resources/ctl2.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();

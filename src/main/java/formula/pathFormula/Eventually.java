@@ -84,25 +84,51 @@ public class Eventually extends PathFormula {
                 //this isn't the end of a chain of execution
                 lastState = false;
 
-                //check if we have been to this target before
-                if (!visitedStates.contains(t.getTarget())) {
 
-                    List<Transition> newTrans = new ArrayList<Transition>(transitions);
-                    newTrans.add(t);
+                Result nextResult = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
 
-                    Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
+                boolean nextSeenRight = rightActions.isEmpty() || actionMatch(rightActions, t);
 
-                    for (Result res:recurDown) {
-                        if (!res.holds) {
-                            res.trace.add(currentState.getName());
-                            res.path.add(t);
+                boolean nextSeenLeft = false;
+
+                if (nextSeenRight) {
+                    if (leftActions.isEmpty()) {
+                        nextSeenLeft = true;
+                    } else {
+                        for (Transition t2 : transitions) {
+                            if (actionMatch(leftActions, t2)) {
+                                nextSeenLeft = true;
+                                break;
+                            }
                         }
                     }
+                }
 
-                    results.addAll(recurDown);
+                //if the condition holds this is a positive result
+                if (nextSeenLeft && nextResult.holds) {
+                    results.add(new Result(true, null, null));
                 } else {
-                    //this target state has been visited before so we're at the end of a loop, and haven't met condition
-                    results.add(new Result(false, trace, path));
+//                    System.out.println(visitedStates.size());
+                    //check if we have been to this target before
+                    if (!visitedStates.contains(t.getTarget())) {
+
+                        List<Transition> newTrans = new ArrayList<Transition>(transitions);
+                        newTrans.add(t);
+
+                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
+
+                        for (Result res : recurDown) {
+                            if (!res.holds) {
+                                res.trace.add(currentState.getName());
+                                res.path.add(t);
+                            }
+                        }
+
+                        results.addAll(recurDown);
+                    } else {
+                        //this target state has been visited before so we're at the end of a loop, and haven't met condition
+                        results.add(new Result(false, trace, path));
+                    }
                 }
             }
 
