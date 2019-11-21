@@ -82,17 +82,19 @@ public class Until extends PathFormula {
                         results.add(new Result(true, null, null));
                     }
                 } else {
-                    //left res holds so continue
-                    Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                    if (!visitedStates.contains(t.getTarget())) {
+                        //left res holds so continue
+                        Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
 
-                    for (Result res:recurDown) {
-                        if (res.trace != null) {
-                            res.trace.add(currentState.getName());
-                            res.path.add(t);
+                        for (Result res : recurDown) {
+                            if (res.trace != null) {
+                                res.trace.add(currentState.getName());
+                                res.path.add(t);
+                            }
                         }
-                    }
 
-                    results.addAll(recurDown);
+                        results.addAll(recurDown);
+                    }
                 }
             }
         }

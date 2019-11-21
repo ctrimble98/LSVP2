@@ -55,7 +55,9 @@ public class Always extends PathFormula {
                     if (!actionMatch) {
                         List<String> trace = new ArrayList<String>();
                         trace.add(currentState.getName());
-                        results.add(new Result(false, trace, new ArrayList<Transition>(Arrays.asList(t))));
+                        List<Transition> path = new ArrayList<Transition>();
+                        path.add(t);
+                        results.add(new Result(false, trace, path));
                     } else {
                         //check if we have been to this target before
                         if (!visitedStates.contains(t.getTarget())) {
