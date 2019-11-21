@@ -61,7 +61,7 @@ public class Always extends PathFormula {
                     } else {
                         //check if we have been to this target before
                         if (!visitedStates.contains(t.getTarget())) {
-                            Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                            Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
 
                             for (Result res:recurDown) {
                                 if (!res.holds) {

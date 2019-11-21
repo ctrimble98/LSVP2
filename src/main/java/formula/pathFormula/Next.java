@@ -40,7 +40,7 @@ public class Next extends PathFormula {
             if (t.getSource().equals(currentState.getName())) {
                 //potential next state
 
-                Result result = stateFormula.checkFormula(model, model.getStatesMap().get(t.getTarget()));
+                Result result = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
 
                 boolean actionMatch = actionMatch(actions, t);
 

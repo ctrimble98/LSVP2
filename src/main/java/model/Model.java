@@ -25,14 +25,7 @@ public class Model {
         return model;
     }
 
-    /**
-     * Returns the list of the states
-     * 
-     * @return list of state for the given model
-     */
-    public State[] getStates() {
-        return states;
-    }
+
 
     /**
      * Returns the list of transitions
@@ -43,7 +36,7 @@ public class Model {
         return transitionsList;
     }
 
-    public Map<String, State> getStatesMap() {
+    public Map<String, State> getStates() {
         return statesMap;
     }
 

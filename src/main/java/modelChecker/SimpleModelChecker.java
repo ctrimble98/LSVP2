@@ -17,19 +17,28 @@ public class SimpleModelChecker implements ModelChecker {
 
         Set<Transition> invalidTransitions = new HashSet<Transition>();
 
+        System.out.println("Original model:");
+
+
+        model.getStates().values().stream().map(x -> x.getName()).forEach(System.out::println);
+        model.getTransitions().forEach(System.out::println);
+
+        System.out.println();
+
         System.out.println(constraint);
 
-        for (Map.Entry<String, State> e:model.getStatesMap().entrySet()) {
+
+
+        for (Map.Entry<String, State> e:model.getStates().entrySet()) {
             State s = e.getValue();
             if (s.isInit()) {
 
 
                 Result res = constraint.checkFormula(model, s);
                 while (!res.holds) {
-                    res.trace.forEach(System.out::println);
                     if (res.path.size() > 0) {
-                        res.path.forEach(System.out::println);
                         model.getTransitions().remove(res.path.get(0));
+
                     } else {
                         model.getTransitions().removeIf(x -> x.getSource().equals(s.getName()) || x.getTarget().equals(s.getName()));
                         break;
@@ -39,9 +48,17 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
+        System.out.println("Constrained model:");
+
+
+        model.getStates().values().stream().map(x -> x.getName()).forEach(System.out::println);
+        model.getTransitions().forEach(System.out::println);
+
+        System.out.println();
+
         System.out.println("Moving to Query");
 
-        for (Map.Entry<String, State> e:model.getStatesMap().entrySet()) {
+        for (Map.Entry<String, State> e:model.getStates().entrySet()) {
             State s = e.getValue();
             if (s.isInit()) {
 
