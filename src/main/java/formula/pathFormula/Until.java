@@ -6,6 +6,7 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -66,12 +67,16 @@ public class Until extends PathFormula {
                     //check that a transition action matches the right actions
                     boolean rightActionMatch = actionMatch(rightActions, t);
 
-                    if (!rightRes.holds || !rightActionMatch) {
+                    if (!rightRes.holds) {
                         //left res doesn't hold and neither does right res, fail
-                        results.add(new Result(false, leftRes.trace));
+                        leftRes.path.add(t);
+                        results.add(new Result(false, leftRes.trace, leftRes.path));
+                    } else if (!rightActionMatch) {
+                        //TODO better action trace
+                        results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>()));
                     } else {
                         //left res down't hold but right res does, success
-                        results.add(new Result(true, null));
+                        results.add(new Result(true, null, null));
                     }
                 } else {
                     //left res holds so continue

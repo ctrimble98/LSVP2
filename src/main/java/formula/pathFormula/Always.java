@@ -50,30 +50,36 @@ public class Always extends PathFormula {
                     //this isn't the end of a chain of execution
                     lastState = false;
 
-                    //check if we have been to this target before
-                    if (!visitedStates.contains(t.getTarget())) {
-                        Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+                    boolean actionMatch = actionMatch(actions, t);
 
-                        for (Result res:recurDown) {
-                            if (res.trace != null) {
-                                res.trace.add(currentState.getName());
-                            }
-                        }
-
-                        results.addAll(recurDown);
+                    if (!actionMatch) {
+                        results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>(Arrays.asList(t))));
                     } else {
-                        //this target state has been visited before so we're at the end of a loop
-                        results.add(new Result(true, null));
+                        //check if we have been to this target before
+                        if (!visitedStates.contains(t.getTarget())) {
+                            Set<Result> recurDown = checkPath(model, model.getStatesMap().get(t.getTarget()), visitedStates);
+
+                            for (Result res:recurDown) {
+                                if (!res.holds) {
+                                    res.trace.add(currentState.getName());
+                                }
+                            }
+
+                            results.addAll(recurDown);
+                        } else {
+                            //this target state has been visited before so we're at the end of a loop
+                            results.add(new Result(true, null, null));
+                        }
                     }
                 }
             }
 
             //this is the legal end of an execution so add it
             if (lastState) {
-                results.add(new Result(true, null));
+                results.add(new Result(true, null, null));
             }
         } else {
-            results.add(new Result(false, stateResult.trace));
+            results.add(new Result(false, stateResult.trace, new ArrayList<Transition>()));
         }
 
         return results;

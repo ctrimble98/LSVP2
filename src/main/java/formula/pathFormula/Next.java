@@ -7,7 +7,9 @@ import model.Model;
 import model.State;
 import model.Transition;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Next extends PathFormula {
@@ -40,11 +42,18 @@ public class Next extends PathFormula {
 
                 Result result = stateFormula.checkFormula(model, model.getStatesMap().get(t.getTarget()));
 
+                boolean actionMatch = actionMatch(actions, t);
+
                 if (!result.holds) {
-                    result.trace.add(currentState.getName());
-                    results.add(new Result(false, result.trace));
+                    //left res doesn't hold and neither does right res, fail
+                    result.path.add(t);
+                    results.add(new Result(false, result.trace, result.path));
+                } else if (!actionMatch) {
+                    //TODO better action trace
+                    results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>()));
                 } else {
-                    results.add(new Result(true, null));
+                    //left res down't hold but right res does, success
+                    results.add(new Result(true, null, null));
                 }
             }
         }

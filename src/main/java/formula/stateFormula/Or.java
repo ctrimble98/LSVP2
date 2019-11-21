@@ -3,6 +3,7 @@ package formula.stateFormula;
 import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +32,17 @@ public class Or extends StateFormula {
         Result rightResult = right.checkFormula(model, currentState);
 
         List<String> trace;
+        List<Transition> path;
 
         if (leftResult.holds || rightResult.holds) {
             trace = null;
+            path = null;
         } else {
             //TODO somehow combine both traces?
-            trace = new ArrayList<String>();
+            trace = leftResult.trace;
+            path = leftResult.path;
         }
 
-        return new Result(leftResult.holds || rightResult.holds, trace);
+        return new Result(leftResult.holds || rightResult.holds, trace, path);
     }
 }

@@ -3,6 +3,7 @@ package formula.stateFormula;
 import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +26,13 @@ public class AtomicProp extends StateFormula {
 
         for (String l:labels) {
             if (l.equals(label)) {
-                return new Result(true, null);
+                return new Result(true, null, null);
             }
         }
 
         List<String> trace = new ArrayList<String>();
         //trace.add(currentState.getName());
-        return new Result(false, trace);
+        return new Result(false, trace, new ArrayList<Transition>());
     }
 
 }

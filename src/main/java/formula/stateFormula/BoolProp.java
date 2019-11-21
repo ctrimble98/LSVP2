@@ -3,6 +3,7 @@ package formula.stateFormula;
 import formula.Result;
 import model.Model;
 import model.State;
+import model.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,6 @@ public class BoolProp extends StateFormula {
             trace.add(currentState.getName());
         }
 
-        return new Result(value, trace);
+        return new Result(value, trace, new ArrayList<Transition>());
     }
 }

@@ -29,12 +29,12 @@ public class And extends StateFormula {
 
         if (!leftResult.holds) {
             //leftResult.trace.add(currentState.getName());
-            return new Result(false, leftResult.trace);
+            return new Result(false, leftResult.trace, leftResult.path);
         } else if (!rightResult.holds) {
             //rightResult.trace.add(currentState.getName());
-            return new Result(false, rightResult.trace);
+            return new Result(false, rightResult.trace, rightResult.path);
         } else {
-            return new Result(true, null);
+            return new Result(true, null, null);
         }
     }
 }

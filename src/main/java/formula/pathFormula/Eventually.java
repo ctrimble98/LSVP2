@@ -51,7 +51,7 @@ public class Eventually extends PathFormula {
 
         //if the condition holds this is a positive result
         if (stateResult.holds) {
-            results.add(new Result(true, null));
+            results.add(new Result(true, null, null));
         } else {
             boolean lastState = true;
 
@@ -75,14 +75,14 @@ public class Eventually extends PathFormula {
                         results.addAll(recurDown);
                     } else {
                         //this target state has been visited before so we're at the end of a loop, and haven't met condition
-                        results.add(new Result(false, stateResult.trace));
+                        results.add(new Result(false, stateResult.trace, stateResult.path));
                     }
                 }
             }
 
             //reach end of execution without meeting the condition
             if (lastState) {
-                results.add(new Result(false, stateResult.trace));
+                results.add(new Result(false, stateResult.trace, stateResult.path));
             }
         }
         return results;

@@ -27,18 +27,12 @@ public class ForAll extends StateFormula {
     public Result checkFormula(Model model, State currentState) {
         Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
-
-        boolean allMatch = true;
-
-        List<String> trace = null;
         for (Result result:paths) {
             if (!result.holds) {
-                allMatch = false;
-                trace = result.trace;
-                break;
+                return new Result(false, result.trace, result.path);
             }
         }
 
-        return new Result(allMatch, trace);
+        return new Result(false, null, null);
     }
 }
