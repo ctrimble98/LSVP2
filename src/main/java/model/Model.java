@@ -55,4 +55,14 @@ public class Model {
             transitionsList.add(t);
         }
     }
+
+    public List<Transition> getTransitionsFromState(String stateName) {
+        List<Transition> results = new ArrayList<Transition>();
+        for (Transition t: transitionsList) {
+            if (t.getSource().equals(stateName)) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
 }

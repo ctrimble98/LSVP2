@@ -31,7 +31,6 @@ public class ThereExists extends StateFormula {
         Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
         if (paths.size() > 0) {
-
             List<String> trace = null;
             List<Transition> path = null;
             for (Result result : paths) {

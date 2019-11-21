@@ -54,52 +54,55 @@ public class Eventually extends PathFormula {
         Set<Result> results = new HashSet<Result>();
 
         //TODO add actions
+
+        boolean seenRight = rightActions.isEmpty() || (transitions.size() > 0 && actionMatch(rightActions, transitions.get(transitions.size() - 1)));
+
+
         boolean seenLeft = false;
 
-        for (Transition t:transitions) {
-            if (actionMatch(leftActions, t)) {
+        if (seenRight) {
+            if (leftActions.isEmpty()) {
                 seenLeft = true;
-                break;
+            } else {
+                for (Transition t : transitions.subList(0, transitions.size() - 1)) {
+                    if (actionMatch(leftActions, t)) {
+                        seenLeft = true;
+                        break;
+                    }
+                }
             }
         }
 
-        boolean seenRight = transitions.size() > 0 && actionMatch(rightActions, transitions.get(transitions.size() - 1));
-
         //if the condition holds this is a positive result
-        if (seenLeft && seenRight && stateResult.holds) {
+        if (seenLeft && stateResult.holds) {
             results.add(new Result(true, null, null));
         } else {
             boolean lastState = true;
 
             //loop through all transitions from thi state and recur
-            for (Transition t : model.getTransitions()) {
-                //check if the current state is the source of transition
-                if (t.getSource().equals(currentState.getName())) {
-                    //this isn't the end of a chain of execution
-                    lastState = false;
+            for (Transition t : model.getTransitionsFromState(currentState.getName())) {
+                //this isn't the end of a chain of execution
+                lastState = false;
 
-                    //check if we have been to this target before
-                    if (!visitedStates.contains(t.getTarget())) {
+                //check if we have been to this target before
+                if (!visitedStates.contains(t.getTarget())) {
 
-                        List<Transition> newTrans = new ArrayList<Transition>(transitions);
-                        newTrans.add(t);
+                    List<Transition> newTrans = new ArrayList<Transition>(transitions);
+                    newTrans.add(t);
 
-                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
+                    Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
 
-                        for (Result res:recurDown) {
-                            if (!res.holds) {
-                                res.trace.add(currentState.getName());
-                                res.path.add(t);
-                            }
+                    for (Result res:recurDown) {
+                        if (!res.holds) {
+                            res.trace.add(currentState.getName());
+                            res.path.add(t);
                         }
-
-                        results.addAll(recurDown);
-                    } else {
-                        //this target state has been visited before so we're at the end of a loop, and haven't met condition
-
-
-                        results.add(new Result(false, trace, path));
                     }
+
+                    results.addAll(recurDown);
+                } else {
+                    //this target state has been visited before so we're at the end of a loop, and haven't met condition
+                    results.add(new Result(false, trace, path));
                 }
             }
 
