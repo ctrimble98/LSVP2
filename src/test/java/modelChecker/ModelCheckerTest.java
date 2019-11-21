@@ -42,8 +42,8 @@ public class ModelCheckerTest {
         try {
             Model model = Model.parseModel("src/test/resources/modelmutex.json");
 
-            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
-            StateFormula query = new FormulaParser("src/test/resources/constraintmutex.json").parse();
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraintmutex.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/true.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
 

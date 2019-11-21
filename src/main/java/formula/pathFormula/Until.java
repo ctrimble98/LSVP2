@@ -8,6 +8,7 @@ import model.Transition;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Until extends PathFormula {
@@ -73,7 +74,9 @@ public class Until extends PathFormula {
                         results.add(new Result(false, leftRes.trace, leftRes.path));
                     } else if (!rightActionMatch) {
                         //TODO better action trace
-                        results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>()));
+                        List<String> trace = new ArrayList<String>();
+                        trace.add(currentState.getName());
+                        results.add(new Result(false, trace, new ArrayList<Transition>()));
                     } else {
                         //left res down't hold but right res does, success
                         results.add(new Result(true, null, null));
@@ -85,6 +88,7 @@ public class Until extends PathFormula {
                     for (Result res:recurDown) {
                         if (res.trace != null) {
                             res.trace.add(currentState.getName());
+                            res.path.add(t);
                         }
                     }
 

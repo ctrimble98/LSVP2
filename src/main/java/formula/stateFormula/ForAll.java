@@ -33,6 +33,6 @@ public class ForAll extends StateFormula {
             }
         }
 
-        return new Result(false, null, null);
+        return new Result(true, null, null);
     }
 }

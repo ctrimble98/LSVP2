@@ -17,31 +17,31 @@ public class SimpleModelChecker implements ModelChecker {
 
         Set<Transition> invalidTransitions = new HashSet<Transition>();
 
-        for (State s:model.getStates()) {
+        for (Map.Entry<String, State> e:model.getStatesMap().entrySet()) {
+            State s = e.getValue();
             if (s.isInit()) {
 
 
                 Result res = constraint.checkFormula(model, s);
                 while (!res.holds) {
-                    model.getTransitions().remove(res.path.get(res.path.size() - 1));
+                    if (res.path == null) {
+                        System.out.println(trace.size());
+                    }
+                    if (res.path.size() > 0) {
+                        model.getTransitions().remove(res.path.get(res.path.size() - 1));
+                    } else {
+                        model.getTransitions().removeIf(x -> x.getSource().equals(s.getName()) || x.getTarget().equals(s.getName()));
+                    }
                     res = constraint.checkFormula(model, s);
                 }
-
-//                trace = res.trace;
-//
-//                if (!res.holds) {
-//                    System.out.println("Trace");
-//                    for (String st: res.trace) {
-//                        System.out.println(st);
-//                    }
-//                    return false;
-//                }
-//
-//                System.out.println();
             }
         }
 
-        for (State s:model.getStates()) {
+
+
+
+        for (Map.Entry<String, State> e:model.getStatesMap().entrySet()) {
+            State s = e.getValue();
             if (s.isInit()) {
 
                 Result res = query.checkFormula(model, s);

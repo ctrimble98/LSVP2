@@ -69,6 +69,7 @@ public class Eventually extends PathFormula {
                         for (Result res:recurDown) {
                             if (res.trace != null) {
                                 res.trace.add(currentState.getName());
+                                res.path.add(t);
                             }
                         }
 

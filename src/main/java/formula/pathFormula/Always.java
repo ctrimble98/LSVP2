@@ -53,7 +53,9 @@ public class Always extends PathFormula {
                     boolean actionMatch = actionMatch(actions, t);
 
                     if (!actionMatch) {
-                        results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>(Arrays.asList(t))));
+                        List<String> trace = new ArrayList<String>();
+                        trace.add(currentState.getName());
+                        results.add(new Result(false, trace, new ArrayList<Transition>(Arrays.asList(t))));
                     } else {
                         //check if we have been to this target before
                         if (!visitedStates.contains(t.getTarget())) {
@@ -62,6 +64,7 @@ public class Always extends PathFormula {
                             for (Result res:recurDown) {
                                 if (!res.holds) {
                                     res.trace.add(currentState.getName());
+                                    res.path.add(t);
                                 }
                             }
 

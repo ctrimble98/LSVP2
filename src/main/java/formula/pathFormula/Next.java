@@ -50,7 +50,9 @@ public class Next extends PathFormula {
                     results.add(new Result(false, result.trace, result.path));
                 } else if (!actionMatch) {
                     //TODO better action trace
-                    results.add(new Result(false, new ArrayList<String>(), new ArrayList<Transition>()));
+                    List<String> trace = new ArrayList<String>();
+                    trace.add(currentState.getName());
+                    results.add(new Result(false, trace, new ArrayList<Transition>()));
                 } else {
                     //left res down't hold but right res does, success
                     results.add(new Result(true, null, null));
