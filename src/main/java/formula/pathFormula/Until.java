@@ -54,23 +54,23 @@ public class Until extends PathFormula {
             //check if the current state is the source of transition
             if (!visitedStates.contains(t.getTarget())) {
 
-                Result leftRes = left.checkFormula(model, model.getStates().get(t.getTarget()));
+                Result rightRes = right.checkFormula(model, model.getStates().get(t.getTarget()));
 
-                boolean leftActionMatch = actionMatch(leftActions, t);
+                boolean rightActionMatch = actionMatch(rightActions, t);
 
-                if (!leftRes.holds || !leftActionMatch) {
+                if (!rightRes.holds || !rightActionMatch) {
 
-                    Result rightRes = right.checkFormula(model, model.getStates().get(t.getTarget()));
+                    Result leftRes = left.checkFormula(model, model.getStates().get(t.getTarget()));
 
                     //check that a transition action matches the right actions
-                    boolean rightActionMatch = actionMatch(rightActions, t);
+                    boolean leftActionMatch = actionMatch(leftActions, t);
 
-                    if (!rightRes.holds) {
+                    if (!leftRes.holds) {
                         //left res doesn't hold and neither does right res, fail
-                        rightRes.trace.add(currentState.getName());
-                        rightRes.path.add(t);
-                        results.add(new Result(false, rightRes.trace, rightRes.path));
-                    } else if (!rightActionMatch) {
+                        leftRes.trace.add(currentState.getName());
+                        leftRes.path.add(t);
+                        results.add(new Result(false, leftRes.trace, leftRes.path));
+                    } else if (!leftActionMatch) {
                         //TODO better action trace
                         List<String> trace = new ArrayList<String>();
                         trace.add(currentState.getName());
