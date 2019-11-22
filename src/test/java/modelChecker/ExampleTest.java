@@ -23,7 +23,23 @@ public class ExampleTest {
             Model model = Model.parseModel("src/test/resources/model1/model1.json");
 
             StateFormula fairnessConstraint = new FormulaParser("src/test/resources/model1/constraint1.json").parse();
-//            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/constraint2.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/model1/ctl1.json").parse();
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertFalse(mc.check(model, fairnessConstraint, query));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+
+    @Test
+    public void model1noConstraint() {
+        try {
+            Model model = Model.parseModel("src/test/resources/model1/model1.json");
+
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
             StateFormula query = new FormulaParser("src/test/resources/model1/ctl1.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
@@ -41,7 +57,23 @@ public class ExampleTest {
             Model model = Model.parseModel("src/test/resources/model2/model2.json");
 
             StateFormula fairnessConstraint = new FormulaParser("src/test/resources/model2/constraint2.json").parse();
-//            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/model2/ctl2.json").parse();
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, fairnessConstraint, query));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+
+    @Test
+    public void model2noConstraint() {
+        try {
+            Model model = Model.parseModel("src/test/resources/model2/model2.json");
+
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
             StateFormula query = new FormulaParser("src/test/resources/model2/ctl2.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
