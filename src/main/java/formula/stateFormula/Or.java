@@ -38,7 +38,6 @@ public class Or extends StateFormula {
             trace = null;
             path = null;
         } else {
-            //TODO somehow combine both traces?
             trace = leftResult.trace;
             path = leftResult.path;
         }

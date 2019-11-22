@@ -53,8 +53,6 @@ public class Eventually extends PathFormula {
 
         Set<Result> results = new HashSet<Result>();
 
-        //TODO add actions
-
         boolean seenRight = rightActions.isEmpty() || (transitions.size() > 0 && actionMatch(rightActions, transitions.get(transitions.size() - 1)));
 
 

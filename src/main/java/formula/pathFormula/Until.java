@@ -71,7 +71,6 @@ public class Until extends PathFormula {
                         leftRes.path.add(t);
                         results.add(new Result(false, leftRes.trace, leftRes.path));
                     } else if (!leftActionMatch) {
-                        //TODO better action trace
                         List<String> trace = new ArrayList<String>();
                         trace.add(currentState.getName());
                         ArrayList<Transition> path = new ArrayList<Transition>();

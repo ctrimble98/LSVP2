@@ -49,7 +49,6 @@ public class Next extends PathFormula {
                     result.path.add(t);
                     results.add(new Result(false, result.trace, result.path));
                 } else if (!actionMatch) {
-                    //TODO better action trace
                     List<String> trace = new ArrayList<String>();
                     trace.add(currentState.getName());
                     results.add(new Result(false, trace, new ArrayList<Transition>()));

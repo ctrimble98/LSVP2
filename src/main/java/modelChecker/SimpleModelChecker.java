@@ -14,9 +14,7 @@ public class SimpleModelChecker implements ModelChecker {
     public void constrainModel(Model model, StateFormula constraint) {
         model.fillModel();
 
-        System.out.println("Original model:");
-        System.out.println(model.toString());
-        System.out.println();
+        System.out.println("Original model:\n" + model);
 
         System.out.println("Constraint: " + constraint);
 
@@ -43,15 +41,7 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
-        System.out.println(model.toJson());
-
-        System.out.println("Constrained model:");
-
-
-        model.getStates().values().stream().map(x -> x.getName()).forEach(System.out::println);
-        model.getTransitions().forEach(System.out::println);
-
-        System.out.println();
+        System.out.println("Constrained model:\n" + model);
     }
 
     @Override
