@@ -84,54 +84,52 @@ public class Eventually extends PathFormula {
                 //this isn't the end of a chain of execution
                 lastState = false;
 
+                //check if we have been to this target before
+                if (!visitedStates.contains(t.getTarget())) {
 
-                Result nextResult = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
+                    List<Transition> newTrans = new ArrayList<Transition>(transitions);
+                    newTrans.add(t);
 
-                boolean nextSeenRight = rightActions.isEmpty() || actionMatch(rightActions, t);
+                    Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
 
-                boolean nextSeenLeft = false;
+                    for (Result res : recurDown) {
+                        if (!res.holds) {
+                            res.trace.add(currentState.getName());
+                            res.path.add(t);
+                        }
+                    }
 
-                if (nextSeenRight) {
-                    if (leftActions.isEmpty()) {
-                        nextSeenLeft = true;
-                    } else {
-                        for (Transition t2 : transitions) {
-                            if (actionMatch(leftActions, t2)) {
-                                nextSeenLeft = true;
-                                break;
+                    results.addAll(recurDown);
+                } else {
+                    //if we've seen this case before we need to look ahead one since we may not have considered this transition
+                    Result nextResult = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
+
+                    boolean nextSeenRight = rightActions.isEmpty() || actionMatch(rightActions, t);
+
+                    boolean nextSeenLeft = false;
+
+                    if (nextSeenRight) {
+                        if (leftActions.isEmpty()) {
+                            nextSeenLeft = true;
+                        } else {
+                            for (Transition t2 : transitions) {
+                                if (actionMatch(leftActions, t2)) {
+                                    nextSeenLeft = true;
+                                    break;
+                                }
                             }
                         }
                     }
-                }
-
-                //if the condition holds this is a positive result
-                if (nextSeenLeft && nextResult.holds) {
-                    results.add(new Result(true, null, null));
-                } else {
-//                    System.out.println(visitedStates.size());
-                    //check if we have been to this target before
-                    if (!visitedStates.contains(t.getTarget())) {
-
-                        List<Transition> newTrans = new ArrayList<Transition>(transitions);
-                        newTrans.add(t);
-
-                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
-
-                        for (Result res : recurDown) {
-                            if (!res.holds) {
-                                res.trace.add(currentState.getName());
-                                res.path.add(t);
-                            }
-                        }
-
-                        results.addAll(recurDown);
+                    //if the condition holds this is a positive result
+                    if (nextSeenLeft && nextResult.holds) {
+                        results.add(new Result(true, null, null));
                     } else {
+
                         //this target state has been visited before so we're at the end of a loop, and haven't met condition
                         results.add(new Result(false, trace, path));
                     }
                 }
             }
-
             //reach end of execution without meeting the condition
             if (lastState) {
                 results.add(new Result(false, trace, path));
