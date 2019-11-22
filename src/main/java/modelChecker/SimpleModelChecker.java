@@ -42,9 +42,9 @@ public class SimpleModelChecker implements ModelChecker {
         }
 
         //remove unnecessary tests
-        boolean deadTests;
+        boolean deadStates;
         do {
-            deadTests = false;
+            deadStates = false;
 
             Iterator<String> stateIter = model.getStates().keySet().iterator();
             while (stateIter.hasNext()) {
@@ -57,7 +57,7 @@ public class SimpleModelChecker implements ModelChecker {
                 }
 
                 if (!hasTransition) {
-                    deadTests = true;
+                    deadStates = true;
                 }
 
                 //if not inital and no transitions, remove
@@ -68,7 +68,7 @@ public class SimpleModelChecker implements ModelChecker {
 
 
 
-        } while (deadTests);
+        } while (deadStates);
 
 
         System.out.println("Constrained model:\n" + model);
