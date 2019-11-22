@@ -44,7 +44,7 @@ tasks.withType(Test) {
 
 jacocoTestReport {
     sourceDirectories = files('src/main/java')
-    classDirectories =  files("$buildDir/classes/main")
+    classDirectories =  files("$buildDir/classes/java/main")
     executionData = fileTree(dir:"${reporting.baseDir}/jacoco/", include: 'test/*.exec')
     reports {
         xml.enabled true
