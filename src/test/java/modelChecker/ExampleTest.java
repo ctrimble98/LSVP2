@@ -52,6 +52,23 @@ public class ExampleTest {
     }
 
     @Test
+    public void model1atomicProp() {
+        try {
+            Model model = Model.parseModel("src/test/resources/model1/model1.json");
+
+            StateFormula fairnessConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula query = new FormulaParser("src/test/resources/model1/aptest.json").parse();
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, fairnessConstraint, query));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+
+    @Test
     public void model2() {
         try {
             Model model = Model.parseModel("src/test/resources/model2/model2.json");

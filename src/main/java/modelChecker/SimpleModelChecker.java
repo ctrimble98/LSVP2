@@ -41,7 +41,7 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
-        //remove unnecessary tests
+        //remove unnecessary states
         boolean deadStates;
         do {
             deadStates = false;
