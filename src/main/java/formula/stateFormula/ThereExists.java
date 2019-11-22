@@ -30,21 +30,18 @@ public class ThereExists extends StateFormula {
     public Result checkFormula(Model model, State currentState) {
         Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
-        if (paths.size() > 0) {
-            List<String> trace = null;
-            List<Transition> path = null;
-            for (Result result : paths) {
-                if (result.holds) {
-                    return new Result(true, result.trace, result.path);
-                } else {
-                    trace = result.trace;
-                    path = result.path;
-                }
-            }
 
-            return new Result(false, trace, path);
-        } else {
-            return new Result(false, new ArrayList<>(), new ArrayList<>());
+        List<String> trace = null;
+        List<Transition> path = null;
+        for (Result result : paths) {
+            if (result.holds) {
+                return new Result(true, result.trace, result.path);
+            } else {
+                trace = result.trace;
+                path = result.path;
+            }
         }
+
+        return new Result(false, trace, path);
     }
 }

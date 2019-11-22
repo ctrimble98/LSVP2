@@ -41,10 +41,10 @@ public class Until extends PathFormula {
 
     @Override
     public Set<Result> checkFormula(Model model, State currentState) {
-        return checkPath(model, currentState, new HashSet<String>()/*, new ArrayList<Transition>()*/);
+        return checkPath(model, currentState, new HashSet<String>());
     }
 
-    private Set<Result> checkPath(Model model, State currentState, HashSet<String> visitedStates/*, List<Transition> trans*/) {
+    private Set<Result> checkPath(Model model, State currentState, HashSet<String> visitedStates) {
         visitedStates.add(currentState.getName());
 
         Set<Result> results = new HashSet<Result>();

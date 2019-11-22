@@ -35,27 +35,25 @@ public class Next extends PathFormula {
     public Set<Result> checkFormula(Model model, State currentState) {
         Set<Result> results = new HashSet<>();
 
-        for (Transition t:model.getTransitions()) {
-            //check if the current state is the source of transition
-            if (t.getSource().equals(currentState.getName())) {
-                //potential next state
+        for (Transition t:model.getTransitionsFromState(currentState.getName())) {
+            //get the result from the next state
+            Result result = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
 
-                Result result = stateFormula.checkFormula(model, model.getStates().get(t.getTarget()));
+            //check that the actions match
+            boolean actionMatch = actionMatch(actions, t);
 
-                boolean actionMatch = actionMatch(actions, t);
-
-                if (!result.holds) {
-                    //left res doesn't hold and neither does right res, fail
-                    result.path.add(t);
-                    results.add(new Result(false, result.trace, result.path));
-                } else if (!actionMatch) {
-                    List<String> trace = new ArrayList<String>();
-                    trace.add(currentState.getName());
-                    results.add(new Result(false, trace, new ArrayList<Transition>()));
-                } else {
-                    //left res down't hold but right res does, success
-                    results.add(new Result(true, result.trace, result.path));
-                }
+            //check if result holds
+            if (!result.holds) {
+                //left res doesn't hold and neither does right res, fail
+                result.path.add(t);
+                results.add(new Result(false, result.trace, result.path));
+            } else if (!actionMatch) {
+                List<String> trace = new ArrayList<String>();
+                trace.add(currentState.getName());
+                results.add(new Result(false, trace, new ArrayList<Transition>()));
+            } else {
+                //left res down't hold but right res does, success
+                results.add(new Result(true, result.trace, result.path));
             }
         }
 

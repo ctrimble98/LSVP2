@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import formula.stateFormula.And;
+import formula.stateFormula.BoolProp;
 import org.junit.Test;
 
 import formula.FormulaParser;

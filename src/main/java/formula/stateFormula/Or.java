@@ -35,9 +35,6 @@ public class Or extends StateFormula {
         List<Transition> path;
 
         if (leftResult.holds || rightResult.holds) {
-            trace = leftResult.trace;
-            path = leftResult.path;
-        } else {
             if (leftResult.holds) {
                 trace = leftResult.trace;
                 path = leftResult.path;
@@ -45,6 +42,10 @@ public class Or extends StateFormula {
                 trace = rightResult.trace;
                 path = rightResult.path;
             }
+        } else {
+            //default trace to left
+            trace = leftResult.trace;
+            path = leftResult.path;
         }
 
         return new Result(leftResult.holds || rightResult.holds, trace, path);
