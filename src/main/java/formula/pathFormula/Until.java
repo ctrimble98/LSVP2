@@ -94,7 +94,7 @@ public class Until extends PathFormula {
                     }
                 } else {
                     //right conditions hold, this is success
-                    results.add(new Result(true, null, null));
+                    results.add(new Result(true, rightRes.trace, rightRes.path));
                 }
             }
         }

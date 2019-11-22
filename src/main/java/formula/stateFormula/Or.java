@@ -35,11 +35,16 @@ public class Or extends StateFormula {
         List<Transition> path;
 
         if (leftResult.holds || rightResult.holds) {
-            trace = null;
-            path = null;
-        } else {
             trace = leftResult.trace;
             path = leftResult.path;
+        } else {
+            if (leftResult.holds) {
+                trace = leftResult.trace;
+                path = leftResult.path;
+            } else {
+                trace = rightResult.trace;
+                path = rightResult.path;
+            }
         }
 
         return new Result(leftResult.holds || rightResult.holds, trace, path);

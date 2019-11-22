@@ -5,6 +5,7 @@ import formula.pathFormula.PathFormula;
 import model.Model;
 import model.State;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -27,12 +28,15 @@ public class ForAll extends StateFormula {
     public Result checkFormula(Model model, State currentState) {
         Set<Result> paths = pathFormula.checkFormula(model, currentState);
 
+        Result r = paths.size() > 0 ? paths.iterator().next() : new Result(true, new ArrayList<>(), new ArrayList<>());
         for (Result result:paths) {
             if (!result.holds) {
                 return new Result(false, result.trace, result.path);
+            } else {
+                r = result;
             }
         }
 
-        return new Result(true, null, null);
+        return r;
     }
 }

@@ -26,7 +26,9 @@ public class AtomicProp extends StateFormula {
 
         for (String l:labels) {
             if (l.equals(label)) {
-                return new Result(true, null, null);
+                ArrayList<String> trace = new ArrayList<String>();
+                trace.add(currentState.getName());
+                return new Result(true, trace, new ArrayList<Transition>());
             }
         }
 

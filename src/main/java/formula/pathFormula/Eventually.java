@@ -73,7 +73,7 @@ public class Eventually extends PathFormula {
 
         //if the condition holds this is a positive result
         if (seenLeft && stateResult.holds) {
-            results.add(new Result(true, null, null));
+            results.add(new Result(true, trace, path));
         } else {
             boolean lastState = true;
 
@@ -91,10 +91,8 @@ public class Eventually extends PathFormula {
                     Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates, newTrans);
 
                     for (Result res : recurDown) {
-                        if (!res.holds) {
-                            res.trace.add(currentState.getName());
-                            res.path.add(t);
-                        }
+                        res.trace.add(currentState.getName());
+                        res.path.add(t);
                     }
 
                     results.addAll(recurDown);
@@ -120,9 +118,8 @@ public class Eventually extends PathFormula {
                     }
                     //if the condition holds this is a positive result
                     if (nextSeenLeft && nextResult.holds) {
-                        results.add(new Result(true, null, null));
+                        results.add(new Result(true, trace, path));
                     } else {
-
                         //this target state has been visited before so we're at the end of a loop, and haven't met condition
                         results.add(new Result(false, trace, path));
                     }

@@ -34,7 +34,7 @@ public class And extends StateFormula {
             //rightResult.trace.add(currentState.getName());
             return new Result(false, rightResult.trace, rightResult.path);
         } else {
-            return new Result(true, null, null);
+            return new Result(true, leftResult.trace, leftResult.path);
         }
     }
 }

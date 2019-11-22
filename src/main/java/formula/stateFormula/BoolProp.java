@@ -26,7 +26,7 @@ public class BoolProp extends StateFormula {
 
         List<String> trace;
         if (value) {
-            trace = null;
+            trace = new ArrayList<>();
         } else {
             trace = new ArrayList<String>();
             trace.add(currentState.getName());

@@ -28,9 +28,9 @@ public class Not extends StateFormula {
         Result childResult = stateFormula.checkFormula(model, currentState);
 
         if (childResult.holds) {
-            return new Result(false, new ArrayList<String>(), new ArrayList<Transition>());
+            return new Result(false, childResult.trace, childResult.path);
         } else {
-            return new Result(true, null, null);
+            return new Result(true, childResult.trace, childResult.path);
         }
     }
 }

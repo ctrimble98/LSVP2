@@ -35,7 +35,7 @@ public class ThereExists extends StateFormula {
             List<Transition> path = null;
             for (Result result : paths) {
                 if (result.holds) {
-                    return new Result(true, null, null);
+                    return new Result(true, result.trace, result.path);
                 } else {
                     trace = result.trace;
                     path = result.path;

@@ -62,23 +62,25 @@ public class Always extends PathFormula {
                         Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
 
                         for (Result res:recurDown) {
-                            if (!res.holds) {
-                                res.trace.add(currentState.getName());
-                                res.path.add(t);
-                            }
+                            res.trace.add(currentState.getName());
+                            res.path.add(t);
                         }
 
                         results.addAll(recurDown);
                     } else {
+                        List<String> trace = new ArrayList<String>();
+                        trace.add(currentState.getName());
+                        List<Transition> path = new ArrayList<Transition>();
+                        path.add(t);
                         //this target state has been visited before so we're at the end of a loop
-                        results.add(new Result(true, null, null));
+                        results.add(new Result(true, trace, path));
                     }
                 }
             }
 
             //this is the legal end of an execution so add it
             if (lastState) {
-                results.add(new Result(true, null, null));
+                results.add(new Result(true, stateResult.trace, stateResult.path));
             }
         } else {
             results.add(new Result(false, stateResult.trace, new ArrayList<Transition>()));

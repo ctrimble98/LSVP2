@@ -58,9 +58,12 @@ public class SimpleModelChecker implements ModelChecker {
         System.out.println("Query: " + query);
         System.out.println();
 
+        boolean haveTested = false;
+
         for (Map.Entry<String, State> e:model.getStates().entrySet()) {
             State s = e.getValue();
             if (s.isInit()) {
+                haveTested = true;
 
                 Result res = query.checkFormula(model, s);
 
@@ -78,7 +81,8 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
-        return true;
+        //only return true if we actually tested a state
+        return haveTested;
     }
 
     @Override

@@ -54,7 +54,7 @@ public class Next extends PathFormula {
                     results.add(new Result(false, trace, new ArrayList<Transition>()));
                 } else {
                     //left res down't hold but right res does, success
-                    results.add(new Result(true, null, null));
+                    results.add(new Result(true, result.trace, result.path));
                 }
             }
         }
