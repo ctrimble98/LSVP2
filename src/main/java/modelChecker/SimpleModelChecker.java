@@ -32,12 +32,9 @@ public class SimpleModelChecker implements ModelChecker {
             State s = iter.next().getValue();
             if (s.isInit()) {
 
-
                 Result res = constraint.checkFormula(model, s);
                 while (!res.holds) {
                     if (res.path.size() > 0) {
-                        System.out.println("removing..");
-                        System.out.println(res.path.get(0));
                         model.getTransitions().remove(res.path.get(0));
                     } else {
                         model.getTransitions().removeIf(x -> x.getSource().equals(s.getName()) || x.getTarget().equals(s.getName()));
