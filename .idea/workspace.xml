@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c565f33-6770-47b0-b0fc-f8cbe4ab8192" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -34,22 +35,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/mutex.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="109" column="24" lean-forward="true" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-              <folding>
-                <element signature="e#1443#1451#0" expanded="true" />
-                <element signature="e#2322#2334#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="31" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/model.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765" />
           </provider>
         </entry>
       </file>
@@ -57,16 +47,16 @@
         <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfair.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="97" selection-start-line="1" selection-start-column="97" selection-end-line="1" selection-end-column="97" />
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/weakfair.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+            <state relative-caret-position="30">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -74,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+            <state relative-caret-position="187">
+              <caret line="161" column="31" lean-forward="true" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -92,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Transition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="540">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="71" selection-end-column="46" />
+            <state relative-caret-position="293">
+              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -122,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+            <state relative-caret-position="315">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/test/resources/constraintmutex.json" />
         <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/Always.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/stateFormula/Not.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/mutex.json" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/mutex2.json" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/weakfair.json" />
@@ -184,18 +173,19 @@
         <option value="$PROJECT_DIR$/src/main/java/formula/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/stateFormula/ThereExists.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/strongfair.json" />
         <option value="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" />
+        <option value="$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2250" />
-    <option name="width" value="1910" />
-    <option name="height" value="765" />
+    <option name="x" value="95" />
+    <option name="width" value="1900" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -233,32 +223,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="formula" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="formula" type="462c0819:PsiDirectoryNode" />
-              <item name="pathFormula" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="formula" type="462c0819:PsiDirectoryNode" />
-              <item name="stateFormula" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,36 +238,6 @@
               <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="modelChecker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mutex" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -491,31 +425,17 @@
       <option name="project" value="LOCAL" />
       <updated>1574357773117</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Started action based tests">
+      <created>1574358255177</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1574358255177</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 29m 01s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 29m 38s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 30m 38s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 33m 13s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 33m 34s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 35m 22s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 35m 38s.xml">
-      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 41m 36s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -523,6 +443,27 @@
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
     <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 42m 44s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.21 at 17h 44m 00s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 10h 22m 52s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 10h 23m 00s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 10h 46m 45s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 39m 09s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 40m 30s.xml">
+      <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 45m 41s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
@@ -536,10 +477,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26093918" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2673426" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -548,7 +488,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23435843" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25028312" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997879" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -569,7 +509,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25506938" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26414087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -578,13 +518,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3295583" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25028312" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997879" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32979852" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32979852" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32979852" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3295583" />
@@ -624,6 +564,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Intellij stuff" />
@@ -640,7 +594,8 @@
     <MESSAGE value="Tried to add actions to eventually, assertions are failing" />
     <MESSAGE value="Got all of our tests working" />
     <MESSAGE value="Added look ahead to eventually" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added look ahead to eventually" />
+    <MESSAGE value="Started action based tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started action based tests" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -677,9 +632,6 @@
           <caret line="833" selection-start-line="833" selection-end-line="833" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/reports/test/junit/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/00-readme.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -722,13 +674,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/modelmutex.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="72" column="25" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/modelmutex.json" />
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/stateFormula/BoolProp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -736,13 +682,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/constraintmutex.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/constraintmutex.json" />
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/stateFormula/Not.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -750,31 +690,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/querystrongfair.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/mutex.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/querystrongfair.json" />
     <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/mutex2.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/weakfair.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -934,55 +854,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="71" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Transition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="109" column="24" lean-forward="true" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-          <folding>
-            <element signature="e#1443#1451#0" expanded="true" />
-            <element signature="e#2322#2334#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1425">
+          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/model.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/mutex.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfair.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="97" selection-start-line="1" selection-start-column="97" selection-end-line="1" selection-end-column="97" />
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/weakfair.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -993,22 +899,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/model.json">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Transition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+        <state relative-caret-position="540">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json">
+    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        <state relative-caret-position="315">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/reports/test/junit/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="161" column="31" lean-forward="true" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
         </state>
       </provider>
     </entry>

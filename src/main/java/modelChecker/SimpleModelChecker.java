@@ -25,8 +25,7 @@ public class SimpleModelChecker implements ModelChecker {
 
         System.out.println();
 
-        System.out.println(constraint);
-
+        System.out.println("Constraint" + constraint);
 
 
         for (Map.Entry<String, State> e:model.getStates().entrySet()) {
@@ -55,6 +54,8 @@ public class SimpleModelChecker implements ModelChecker {
         model.getTransitions().forEach(System.out::println);
 
         System.out.println();
+
+        System.out.println("Query: " + query);
 
         System.out.println("Moving to Query");
 
@@ -87,7 +88,6 @@ public class SimpleModelChecker implements ModelChecker {
 
     @Override
     public String[] getTrace() {
-        // TODO Auto-generated method stub
         Collections.reverse(trace);
         return trace.toArray(new String[trace.size()]);
     }
