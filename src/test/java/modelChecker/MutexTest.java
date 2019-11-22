@@ -117,6 +117,7 @@ public class MutexTest {
             ModelChecker mc = new SimpleModelChecker();
 
             assertTrue(mc.check(model, mutex, mutex2));
+            model = Model.parseModel("src/test/resources/mutex/model.json");
             assertTrue(mc.check(model, mutex2, mutex));
         } catch (IOException e) {
             e.printStackTrace();
@@ -137,6 +138,7 @@ public class MutexTest {
             ModelChecker mc = new SimpleModelChecker();
 
             assertTrue(mc.check(model, new And(mutex, strongFair), weakFair));
+            model = Model.parseModel("src/test/resources/mutex/model.json");
             assertTrue(mc.check(model, new And(mutex, weakFair), strongFair));
         } catch (IOException e) {
             e.printStackTrace();
@@ -156,6 +158,7 @@ public class MutexTest {
             ModelChecker mc = new SimpleModelChecker();
 
             assertTrue(mc.check(model, strongFair, weakFair));
+            model = Model.parseModel("src/test/resources/mutex/model.json");
             assertTrue(mc.check(model, weakFair, strongFair));
         } catch (IOException e) {
             e.printStackTrace();
@@ -163,6 +166,9 @@ public class MutexTest {
         }
     }
 
+    /**
+     * Test to show that our strong fair constraint is equivalent to the action based version
+     */
     @Test
     public void strongFairMutexActTest() {
         try {
@@ -172,12 +178,11 @@ public class MutexTest {
             StateFormula strongFair = new FormulaParser("src/test/resources/mutex/strongfair.json").parse();
             StateFormula strongFairAct = new FormulaParser("src/test/resources/mutex/strongfairact.json").parse();
 
-            StateFormula constraint = new And(mutex, strongFair);
-
-
             ModelChecker mc = new SimpleModelChecker();
 
-            assertTrue(mc.check(model, constraint, strongFairAct));
+            assertTrue(mc.check(model, strongFair, strongFairAct));
+            model = Model.parseModel("src/test/resources/mutex/model.json");
+            assertTrue(mc.check(model, strongFairAct, strongFair));
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.toString());

@@ -25,7 +25,7 @@ public class SimpleModelChecker implements ModelChecker {
 
         System.out.println();
 
-        System.out.println("Constraint" + constraint);
+        System.out.println("Constraint: " + constraint);
 
 
         for (Map.Entry<String, State> e:model.getStates().entrySet()) {

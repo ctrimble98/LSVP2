@@ -1,0 +1,31 @@
+package modelChecker;
+
+import formula.FormulaParser;
+import formula.stateFormula.StateFormula;
+import model.Model;
+import org.junit.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class Model3Test {
+
+    @Test
+    public void mutexTest() {
+        try {
+            Model model = Model.parseModel("src/test/resources/model3/model.json");
+
+            StateFormula trueConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula until = new FormulaParser("src/test/resources/model3/untiltest.json").parse();
+
+            ModelChecker mc = new SimpleModelChecker();
+
+            assertTrue(mc.check(model, until, trueConstraint));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+}
