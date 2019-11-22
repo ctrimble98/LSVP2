@@ -29,6 +29,10 @@ public interface ModelChecker {
      */
     public boolean check(Model model, StateFormula constraint, StateFormula query);
 
+    public void constrainModel(Model model, StateFormula constraint);
+
+    public boolean checkQuery(Model model, StateFormula query);
+
     // Returns a trace of the previous check attempt if it failed.
     public String[] getTrace();
 }

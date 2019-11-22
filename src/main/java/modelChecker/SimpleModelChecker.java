@@ -11,18 +11,11 @@ public class SimpleModelChecker implements ModelChecker {
     private List<String> trace = new ArrayList<String>();
 
     @Override
-    public boolean check(Model model, StateFormula constraint, StateFormula query) {
-        model.fillStatesMap();
-        model.transitionsToList();
-
-        Set<Transition> invalidTransitions = new HashSet<Transition>();
+    public void constrainModel(Model model, StateFormula constraint) {
+        model.fillModel();
 
         System.out.println("Original model:");
-
-
-        model.getStates().values().stream().map(x -> x.getName()).forEach(System.out::println);
-        model.getTransitions().forEach(System.out::println);
-
+        System.out.println(model.toString());
         System.out.println();
 
         System.out.println("Constraint: " + constraint);
@@ -50,6 +43,8 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
+        System.out.println(model.toJson());
+
         System.out.println("Constrained model:");
 
 
@@ -57,10 +52,21 @@ public class SimpleModelChecker implements ModelChecker {
         model.getTransitions().forEach(System.out::println);
 
         System.out.println();
+    }
+
+    @Override
+    public boolean check(Model model, StateFormula constraint, StateFormula query) {
+
+        constrainModel(model, constraint);
+        return checkQuery(model, query);
+    }
+
+    @Override
+    public boolean checkQuery(Model model, StateFormula query) {
+        model.fillModel();
 
         System.out.println("Query: " + query);
-
-        System.out.println("Moving to Query");
+        System.out.println();
 
         for (Map.Entry<String, State> e:model.getStates().entrySet()) {
             State s = e.getValue();
@@ -80,10 +86,6 @@ public class SimpleModelChecker implements ModelChecker {
 
                 System.out.println();
             }
-        }
-
-        for (Loop l: model.getLoops()) {
-            System.out.println(l);
         }
 
         return true;
