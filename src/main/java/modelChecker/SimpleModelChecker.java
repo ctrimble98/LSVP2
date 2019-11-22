@@ -41,6 +41,36 @@ public class SimpleModelChecker implements ModelChecker {
             }
         }
 
+        //remove unnecessary tests
+        boolean deadTests;
+        do {
+            deadTests = false;
+
+            Iterator<String> stateIter = model.getStates().keySet().iterator();
+            while (stateIter.hasNext()) {
+                String s = stateIter.next();
+                boolean hasTransition = false;
+                for (Transition t:model.getTransitions()) {
+                    if (t.getSource().equals(s) || t.getTarget().equals(s)) {
+                        hasTransition = true;
+                    }
+                }
+
+                if (!hasTransition) {
+                    deadTests = true;
+                }
+
+                //if not inital and no transitions, remove
+                if (!hasTransition && !model.getStates().get(s).isInit()) {
+                    stateIter.remove();
+                }
+            }
+
+
+
+        } while (deadTests);
+
+
         System.out.println("Constrained model:\n" + model);
     }
 
