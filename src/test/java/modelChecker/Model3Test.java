@@ -13,16 +13,16 @@ import static org.junit.Assert.fail;
 public class Model3Test {
 
     @Test
-    public void mutexTest() {
+    public void untilTest() {
         try {
             Model model = Model.parseModel("src/test/resources/model3/model.json");
 
-            StateFormula trueConstraint = new FormulaParser("src/test/resources/true.json").parse();
+            StateFormula existsgoal = new FormulaParser("src/test/resources/model3/existsgoal.json").parse();
             StateFormula until = new FormulaParser("src/test/resources/model3/untiltest.json").parse();
 
             ModelChecker mc = new SimpleModelChecker();
 
-            assertTrue(mc.check(model, until, trueConstraint));
+            assertTrue(mc.check(model, until, existsgoal));
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.toString());

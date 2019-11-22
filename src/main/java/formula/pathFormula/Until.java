@@ -6,10 +6,7 @@ import model.Model;
 import model.State;
 import model.Transition;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Until extends PathFormula {
     public final StateFormula left;
@@ -53,30 +50,33 @@ public class Until extends PathFormula {
         Set<Result> results = new HashSet<Result>();
 
         //loop through all transitions from thi state and recur
-        for (Transition t:model.getTransitions()) {
+        for (Transition t:model.getTransitionsFromState(currentState.getName())) {
             //check if the current state is the source of transition
-            if (t.getSource().equals(currentState.getName()) && !visitedStates.contains(t.getTarget())) {
+            if (!visitedStates.contains(t.getTarget())) {
 
-                Result leftRes = left.checkFormula(model, currentState);
+                Result leftRes = left.checkFormula(model, model.getStates().get(t.getTarget()));
 
                 boolean leftActionMatch = actionMatch(leftActions, t);
 
                 if (!leftRes.holds || !leftActionMatch) {
 
-                    Result rightRes = left.checkFormula(model, currentState);
+                    Result rightRes = right.checkFormula(model, model.getStates().get(t.getTarget()));
 
                     //check that a transition action matches the right actions
                     boolean rightActionMatch = actionMatch(rightActions, t);
 
                     if (!rightRes.holds) {
                         //left res doesn't hold and neither does right res, fail
-                        leftRes.path.add(t);
-                        results.add(new Result(false, leftRes.trace, leftRes.path));
+                        rightRes.trace.add(currentState.getName());
+                        rightRes.path.add(t);
+                        results.add(new Result(false, rightRes.trace, rightRes.path));
                     } else if (!rightActionMatch) {
                         //TODO better action trace
                         List<String> trace = new ArrayList<String>();
                         trace.add(currentState.getName());
-                        results.add(new Result(false, trace, new ArrayList<Transition>()));
+                        ArrayList<Transition> path = new ArrayList<Transition>();
+                        path.add(t);
+                        results.add(new Result(false, trace, path));
                     } else {
                         //left res down't hold but right res does, success
                         results.add(new Result(true, null, null));

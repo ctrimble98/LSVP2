@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c565f33-6770-47b0-b0fc-f8cbe4ab8192" name="Default Changelist" comment="Fixed tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1c565f33-6770-47b0-b0fc-f8cbe4ab8192" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -36,33 +35,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/mutex.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/strongfair.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/mutex/weakfair.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -71,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="285">
+              <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,10 +56,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/ctl2.json">
+        <entry file="file://$PROJECT_DIR$/src/main/java/formula/FormulaParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="23" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="23" />
+            <state relative-caret-position="360">
+              <caret line="44" column="72" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="73" column="50" lean-forward="true" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+              <folding>
+                <element signature="e#2864#2876#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,20 +88,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
+            <state relative-caret-position="401">
+              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            <state relative-caret-position="735">
+              <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/State.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <folding>
+                <element signature="e#203#209#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="96" column="28" lean-forward="true" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -125,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="202">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -156,7 +164,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/model/State.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Transition.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Loop.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java" />
@@ -179,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/test/java/modelChecker/Test.java" />
         <option value="$PROJECT_DIR$/src/test/resources/constraint2.json" />
         <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/PathFormula.java" />
-        <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/stateFormula/ThereExists.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
@@ -187,9 +193,11 @@
         <option value="$PROJECT_DIR$/src/test/resources/mutex/strongfair.json" />
         <option value="$PROJECT_DIR$/src/test/resources/mutex/strongfairact.json" />
         <option value="$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" />
         <option value="$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/State.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java" />
       </list>
     </option>
   </component>
@@ -234,6 +242,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="formula" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="formula" type="462c0819:PsiDirectoryNode" />
+              <item name="pathFormula" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -264,6 +289,21 @@
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="modelChecker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LSVP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LSVP2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="model3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -465,38 +505,45 @@
       <option name="project" value="LOCAL" />
       <updated>1574423168293</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added model3">
+      <created>1574428019423</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1574428019423</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 46m 39s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 14m 22s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 48m 27s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 16m 00s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 11h 53m 46s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 16m 03s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 12h 00m 26s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 18m 52s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 12h 02m 37s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 21m 35s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 12h 04m 43s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 23m 55s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 12h 06m 06s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 24m 50s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 02m 46s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 27m 14s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 03m 00s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 31m 41s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 04m 37s.xml">
+    <history-entry file="LSVP2_[clean_build_test_coverage] - 2019.11.22 at 13h 35m 23s.xml">
       <configuration name="LSVP2 [clean build test coverage]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
@@ -511,6 +558,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2673426" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -522,7 +570,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25028312" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997879" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997735" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32979852" />
@@ -629,7 +677,8 @@
     <MESSAGE value="Added look ahead to eventually" />
     <MESSAGE value="Started action based tests" />
     <MESSAGE value="Fixed tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed tests" />
+    <MESSAGE value="Added model3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added model3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///usr/local/amazon-corretto-11/lib/src.zip!/java.base/java/util/function/Function.java">
@@ -670,16 +719,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/query1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding>
-            <element signature="e#203#209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/local/amazon-corretto-11/lib/src.zip!/java.base/java/util/function/Predicate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -691,13 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formula/FormulaParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2641">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -787,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="91" column="43" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Next.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -863,28 +888,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1482#1494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/PathFormula.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -946,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutexTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -960,20 +960,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/Model3Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="285">
+          <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formula/FormulaParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="44" column="72" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Eventually.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="96" column="28" lean-forward="true" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ExampleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="73" column="50" lean-forward="true" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+          <folding>
+            <element signature="e#2864#2876#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="e#203#209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
         </state>
       </provider>
     </entry>

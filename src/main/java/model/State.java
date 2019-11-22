@@ -18,6 +18,9 @@ public class State {
     public boolean isInit() {
 	return init;
     }
+    public void setInit(boolean init) {
+        this.init = init;
+    }
 	
     /**
      * Returns the name of the state

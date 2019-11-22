@@ -27,22 +27,28 @@ public class SimpleModelChecker implements ModelChecker {
 
         System.out.println("Constraint: " + constraint);
 
-
-        for (Map.Entry<String, State> e:model.getStates().entrySet()) {
-            State s = e.getValue();
+        Iterator<Map.Entry<String, State>> iter = model.getStates().entrySet().iterator();
+        while (iter.hasNext()) {
+            State s = iter.next().getValue();
             if (s.isInit()) {
 
 
                 Result res = constraint.checkFormula(model, s);
                 while (!res.holds) {
                     if (res.path.size() > 0) {
+                        System.out.println("removing..");
+                        System.out.println(res.path.get(0));
                         model.getTransitions().remove(res.path.get(0));
-
                     } else {
                         model.getTransitions().removeIf(x -> x.getSource().equals(s.getName()) || x.getTarget().equals(s.getName()));
                         break;
                     }
                     res = constraint.checkFormula(model, s);
+
+                    //Set state to not an initial state if all paths dont meet the constraint
+                    if (model.getTransitionsFromState(s.getName()).size() == 0) {
+                        s.setInit(false);
+                    }
                 }
             }
         }
