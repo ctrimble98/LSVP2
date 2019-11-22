@@ -29,13 +29,13 @@ public class SimpleModelChecker implements ModelChecker {
                         model.getTransitions().remove(res.path.get(0));
                     } else {
                         model.getTransitions().removeIf(x -> x.getSource().equals(s.getName()) || x.getTarget().equals(s.getName()));
-                        break;
                     }
                     res = constraint.checkFormula(model, s);
 
                     //Set state to not an initial state if all paths dont meet the constraint
                     if (model.getTransitionsFromState(s.getName()).size() == 0) {
                         s.setInit(false);
+                        break;
                     }
                 }
             }
