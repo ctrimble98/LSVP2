@@ -78,23 +78,24 @@ public class Until extends PathFormula {
                         path.add(t);
                         results.add(new Result(false, trace, path));
                     } else {
-                        //left res down't hold but right res does, success
-                        results.add(new Result(true, null, null));
+                        //right don't hold but left do, keep looking
+                        if (!visitedStates.contains(t.getTarget())) {
+                            //left res holds so continue
+                            Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
+
+                            for (Result res : recurDown) {
+                                if (!res.holds) {
+                                    res.trace.add(currentState.getName());
+                                    res.path.add(t);
+                                }
+                            }
+
+                            results.addAll(recurDown);
+                        }
                     }
                 } else {
-                    if (!visitedStates.contains(t.getTarget())) {
-                        //left res holds so continue
-                        Set<Result> recurDown = checkPath(model, model.getStates().get(t.getTarget()), visitedStates);
-
-                        for (Result res : recurDown) {
-                            if (!res.holds) {
-                                res.trace.add(currentState.getName());
-                                res.path.add(t);
-                            }
-                        }
-
-                        results.addAll(recurDown);
-                    }
+                    //right conditions hold, this is success
+                    results.add(new Result(true, null, null));
                 }
             }
         }
